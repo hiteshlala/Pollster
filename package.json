@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/tepidLatte/tepidLatte#readme",
   "dependencies": {
+    "body-parser": "^1.15.0",
     "express": "^4.13.4",
     "express-sessions": "^1.0.5",
     "grunt": "^0.4.5",
