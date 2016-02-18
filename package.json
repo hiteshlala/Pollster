@@ -1,0 +1,26 @@
+{
+  "name": "group-event-file",
+  "version": "1.0.0",
+  "description": "event scheduler",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tepidLatte/tepidLatte.git"
+  },
+  "author": "Brian Ronaghan, Micheal Cheung, Oliver Huang, Hitesh Lala",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tepidLatte/tepidLatte/issues"
+  },
+  "homepage": "https://github.com/tepidLatte/tepidLatte#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "express-sessions": "^1.0.5",
+    "grunt": "^0.4.5",
+    "mysql": "^2.10.2",
+    "react": "^0.14.7"
+  }
+}
