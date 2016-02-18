@@ -10,9 +10,12 @@ module.exports.app = app;
 
 app.set('port', 8080);
 
-app.user(parser.json());
-app.user('/', router);
+app.use(parser.json());
+app.use('/', router);
 
 app.use(express.static(__dirname + '../client'));
 
 
+app.listen(8080, function () {
+  console.log('Example app listening on port 3000!');
+});
