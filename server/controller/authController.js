@@ -6,6 +6,7 @@ var Promise = require('bluebird');
 
 module.exports = {
   signin: function (req, res) {
+    console.log(req.session);
     db.models.User.findOne({where: {name: req.body.name}})
       .then(function (user) {
         if(!user) {
@@ -20,8 +21,8 @@ module.exports = {
             req.session.regenerate(function() {
               console.log("good pass match");
               req.session.user = req.body.name;
-              //
-              res.redirect('/');
+              // res.redirect('/');
+              res.json(201);
             });
           } else {
             console.log('bad pass');
