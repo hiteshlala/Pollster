@@ -1,5 +1,5 @@
 var Sequelize = require('sequelize');
-var db = new Sequelize('latte', 'root', '');
+var db = new Sequelize('latte', 'root', '123');
 
 var User = db.define('User', {
   name: Sequelize.STRING,
@@ -28,4 +28,4 @@ User.belongsToMany(User, {as: 'Friend', through: 'Relationships' });
 
 db.sync();
 
-module.exports = db;
+module.exports = db; 
