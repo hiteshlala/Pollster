@@ -1,10 +1,10 @@
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcrypt-nodejs');
 
 var db = require('../db');
 var session = require('express-session');
 var Promise = require('bluebird');
 
-exports.auth = {
+module.exports = {
   signin: function (req, res) {
     db.models.User.findOne({where: {name: req.body.name}})
       .then(function (user) {
@@ -34,9 +34,9 @@ exports.auth = {
     var password = req.body.password;
 
     var cipher = Promise.promisify(bcrypt.hash);
-    cipher(this.get(), null, null).bind(this)
+    cipher(password, null, null)
       .then(function(hash) {
-        User.create({name: req.body.name, email: req.body.email, password: hash})
+        db.models.User.create({name: req.body.name, email: req.body.email, password: hash})
         .then(function (user) {
           console.log("succ created user ", user);
           req.session.regenerate(function() {
