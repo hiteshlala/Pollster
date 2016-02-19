@@ -1,5 +1,5 @@
 var Sequelize = require('sequelize');
-var db = new Sequelize('latte', 'root', '123');
+var db = new Sequelize('latte', 'root', '');
 
 var User = db.define('User', {
   name: Sequelize.STRING,
