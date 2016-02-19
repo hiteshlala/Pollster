@@ -1,6 +1,6 @@
 var db = require('../db');
 
-var events = {
+module.exports = {
   post: function (req, res, next) {
     db.models.Event.create({
       name: req.body.name,
@@ -25,13 +25,3 @@ var events = {
     });
   }
 }
-
-module.exports = events;
-
-// {
-//   "name": "birthday",
-//   "private": 0,
-//   "start": "2016-02-19",
-//   "end": "2016-02-20",
-//   "creator": "oliver"
-// }
