@@ -28,4 +28,4 @@ User.belongsToMany(User, {as: 'Friend', through: 'Relationships' });
 
 db.sync();
 
-module.exports = db; 
+module.exports = db;

@@ -1,6 +1,5 @@
 var controller = require('./controller');
 var router = require('express').Router();
-var friends = require('./controller/friendsController.js')
 
 router.get('/signin', controller.signin);
 
@@ -14,8 +13,8 @@ router.post('/events', contoller.events.post);
 
 router.put('/events', controller.events.put);
 
-router.get('/friends', friends.friends.get);
+router.get('/friends', controller.friends.get);
 
-router.post('/friends', friends.friends.post);
+router.post('/friends', controller.friends.post);
 
 module.exports = router;
