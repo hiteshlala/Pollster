@@ -11,7 +11,7 @@ module.exports = {
     })
     .then(function () {
       res.json(201);
-    });  
+    });
   },
 
   put: function (req, res, next) {
@@ -23,5 +23,26 @@ module.exports = {
     .then(function (success) {
       res.json(201);
     });
+  },
+
+  // recieves a user id and returns all events they are in
+  get: function(req, res, next) {
+    // query UserEvent for all events IDS assossicated with the id
+    db.models.UserEvent.findAll({
+      where: {
+        UserId: req.params.userid
+      }
+    })
+    .then(function(result) {
+      var eventIdList = result.map(function(pair){ return pair.EventId; });
+      return db.models.Event.findAll({
+        where : {
+          id: { $in: eventIdList }
+        }
+      });
+    })
+    .then(function(listOfEvents) {
+      res.status(200).send(listOfEvents);
+    });
   }
-}
+};
