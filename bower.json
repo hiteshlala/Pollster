@@ -1,0 +1,26 @@
+{
+  "name": "group-event-file",
+  "description": "event scheduler",
+  "main": "client/index.html",
+  "authors": [
+    "Brian Ronaghan",
+    "Micheal Cheung",
+    "Oliver Huang",
+    "Hitesh Lala"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/TepidLatteGreenfield/tepidLatte2",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-route": "^1.5.0"
+  }
+}
