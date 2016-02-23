@@ -21,8 +21,12 @@ var Event = db.define('Event', {
   updatedAt: false
 });
 
+
 User.belongsToMany(Event, {through: 'UserEvent'});
 Event.belongsToMany(User, {through: 'UserEvent'});
+
+User.belongsToMany(Event, {through: 'Notifications'});
+Event.belongsToMany(User, {through: 'Notifications'});
 
 User.belongsToMany(User, {as: 'Friend', through: 'Relationships' });
 

@@ -21,4 +21,10 @@ router.get('/friends', controller.friends.get);
 
 router.post('/friends', controller.friends.post);
 
+router.post('/notifications', controller.notifications.post);
+
+router.get('/notifications/:userid', controller.notifications.get);
+
+router.delete('/notifications', controller.notifications.delete);
+
 module.exports = router;
