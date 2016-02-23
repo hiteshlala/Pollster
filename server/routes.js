@@ -17,7 +17,7 @@ router.post('/events', controller.events.post);
 
 router.put('/events', controller.events.put);
 
-router.get('/friends', controller.friends.get);
+router.get('/friends/:UserId', controller.friends.get);
 
 router.post('/friends', controller.friends.post);
 

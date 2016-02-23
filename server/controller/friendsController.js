@@ -13,17 +13,17 @@ module.exports = {
     });
   },
   get: function(req, res) {
-    console.log(req.query)
+    console.log(req.params)
     db.models.Relationships.findAll({
       where: {
         $or: [
-          {FriendId: req.query.UserId},
-          {UserId: req.query.UserId}
+          {FriendId: req.params.UserId},
+          {UserId: req.params.UserId}
         ]
       }
     }).then(function(data) {
       data = data.map(function(item) {
-        if(Number(item.UserId) === Number(req.query.UserId)) {
+        if(Number(item.UserId) === Number(req.params.UserId)) {
           return item.FriendId;
         } else {
           return item.UserId;
