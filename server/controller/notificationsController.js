@@ -33,7 +33,7 @@ module.exports = {
         EventId: req.body.EventId
       }
     })
-    .then(function(result, something) {
+    .then(function(result) {
       res.status(200).send(result);
     });
   },
