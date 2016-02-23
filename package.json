@@ -22,6 +22,7 @@
     "express": "^4.13.4",
     "express-session": "^1.13.0",
     "grunt": "^0.4.5",
+    "jwt-simple": "^0.4.1",
     "mysql": "^2.10.2",
     "react": "^0.14.7",
     "sequelize": "^3.19.3"
