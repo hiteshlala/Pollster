@@ -5,6 +5,8 @@ var session = require('express-session');
 var Promise = require('bluebird');
 
 module.exports = {
+
+  // Expects req.body to be an Object with properties 'name' and 'password'
   signin: function (req, res) {
     console.log(req.session);
     db.models.User.findOne({where: {name: req.body.name}})
@@ -31,6 +33,8 @@ module.exports = {
         });
       });
   },
+
+  // Expects req.body to be an Object with properties 'name', 'email', and 'password'
   signup: function (req, res) {
     var password = req.body.password;
 
