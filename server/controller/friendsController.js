@@ -3,8 +3,8 @@ var db = require('../db');
 module.exports = {
   post: function(req, res) {
     console.log(req.body)
-    var user1 = req.body.UserId;
-    var user2 = req.body.FriendId;
+    var user1 = req.body.userId;
+    var user2 = req.body.friendId;
     db.models.Relationships.create({
       UserId: user1,
       FriendId: user2
@@ -33,4 +33,3 @@ module.exports = {
     });
   }
 };
-
