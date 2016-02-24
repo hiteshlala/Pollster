@@ -1,0 +1,16 @@
+<div id='container'>
+<h1> MY CALENDAR VIEW</h1>
+<div ng-app="scheduler" ng-controller="calendarController">
+  <form ng-submit="submit()" ng-controller="calendarController">
+    <input type="submit" id="submit" value="CREATE EVENT"/>
+  </form>
+  <select name="months" id="monthSelector" ng-model="monthSelector"></select>
+    <div ng-repeat="event in events | orderBy: 'start' | filter:monthSelector">
+      <div class='event'>
+        <span class='title'>{{event.name}}</span>
+        <span class='creator'>{{event.creator}}</span>
+        <span class='start'>{{event.start}}</span>
+        <span class='start'>{{event.end}}</span>
+      </div>
+    </div>
+</div>

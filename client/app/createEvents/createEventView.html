@@ -1,0 +1,11 @@
+<div id='container'>
+<h1>CREATE EVENT VIEW</h1>
+<div ng-app="scheduler" ng-controller="createEventController">
+    <input type="submit" id="submit" value="CREATE EVENT"/>
+  <div ng-repeat="friend in allMyFriends">
+    <div class='friend'>
+      <span class='friendname'>{{friend.name}}</span>
+      <form ng-submit="addfriend(friend.name)"> Add to event </form>
+    </div>
+  </div>
+</div>

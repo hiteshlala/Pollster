@@ -11,7 +11,8 @@ router.post('/signup', controller.auth.signup);
 
 router.get('/users', controller.users.get);
 
-router.get('/events/:username', controller.events.get);
+// router.get('/events/:username', controller.events.get);
+router.get('/events/:userid', controller.events.get);
 
 router.post('/events', controller.events.post);
 
