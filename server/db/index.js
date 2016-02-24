@@ -17,22 +17,23 @@ var Poll = db.define('poll', {
   name: Sequelize.STRING,
   creator: Sequelize.STRING,
   choice1: Sequelize.STRING,
-  choice1count: Sequelize.INTEGER,
+  choice1Count: Sequelize.INTEGER,
   choice2: Sequelize.STRING,
-  choice2count: Sequelize.INTEGER,
+  choice2Count: Sequelize.INTEGER,
   choice3: Sequelize.STRING,
-  choice3count: Sequelize.INTEGER,
+  choice3Count: Sequelize.INTEGER,
   choice4: Sequelize.STRING,
-  choice4count: Sequelize.INTEGER
+  choice4Count: Sequelize.INTEGER
 }, {
-  createdAt: false,
   updatedAt: false
 });
+
+// sets a field in the poll schema that holds the creatorid as a for. key
+Poll.belongsTo(User, {foreignKey: 'creatorId'});
 
 // Declares the join table that creates a relationship between a USER and a POLL
 User.belongsToMany(Poll, {through: 'UserPoll'});
 Poll.belongsToMany(User, {through: 'UserPoll'});
-
 // Declares the join table that creates friendships between two users
 User.belongsToMany(User, {as: 'Friend', through: 'Relationships' });
 
