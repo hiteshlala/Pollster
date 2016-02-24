@@ -11,13 +11,13 @@ router.post('/signup', controller.auth.signup);
 
 router.get('/users', controller.users.get);
 
-router.get('/polls/:userid', controller.polls.get);
+router.get('/polls/:userId', controller.polls.get);
 
 router.post('/polls', controller.polls.post);
 
 router.put('/polls', controller.polls.put);
 
-router.get('/friends/:userid', controller.friends.get);
+router.get('/friends/:userId', controller.friends.get);
 
 router.post('/friends', controller.friends.post);
 
