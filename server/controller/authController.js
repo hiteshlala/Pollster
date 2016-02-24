@@ -6,8 +6,9 @@ var Promise = require('bluebird');
 var jwt = require('jwt-simple');
 
 module.exports = {
-
-  // Expects req.body to be an Object with properties 'name' and 'password'
+  // [input] req.body to be an object with properties 'name' and 'password'
+  // [output] if password is correct returns an object with 'token' and 'userId'
+  // [side effects] if no user or incorrect password redirects to '/signin'
   signin: function (req, res, next) {
     db.models.User.findOne({where: {name: req.body.name}})
       .then(function (user) {
@@ -20,11 +21,10 @@ module.exports = {
             res.redirect('/signin');
           }
           if (isMatch) {
-            var token = jwt.encode(user, 'latte')
-            console.log('YOOoooooooooooooooooooooooooo',token)
-            res.json({token: token});
+            var token = jwt.encode(user, 'latte');
+            res.json({token: token , userId: user.id});
           } else {
-            return next(new Error('No user'));
+            return next(new Error('Wrong Password'));
           }
         });
       })
@@ -33,28 +33,44 @@ module.exports = {
       });
   },
 
-  // Expects req.body to be an Object with properties 'name', 'email', and 'password'
+  // [input] req.body to be an object with properties 'name', 'email', and 'password'
+  // [output] res.json with object with 'token' and 'userId'
+  // [side effects] if username does not exists creates a new user else redirects to '/signup'
   signup: function (req, res) {
     var password = req.body.password;
 
     var cipher = Promise.promisify(bcrypt.hash);
     cipher(password, null, null)
       .then(function(hash) {
-        db.models.User.create({name: req.body.name, email: req.body.email, password: hash})
-        .then(function (user) {
-          var token = jwt.encode(user, 'latte');
-          res.json({token: token});
+        db.models.User.findOrCreate({
+          where: { name: req.body.name }
+        })
+        .spread(function (user, created) {
+          console.log('from signup user',user);
+          if(created) {
+            user.updateAttributes({email: req.body.email, password: hash});
+            var token = jwt.encode(user, 'latte');
+            res.json({token: token, userId: user.id });
+          } else {
+            // send a message about creating a new username
+            // it already exists
+            res.json({message: 'username already exists.  choose another', success: false});
+            // res.redirect('/signup');
+          }
         })
         .catch(function (err) {
           console.error(err);
         });
       });
   },
+
+  // FIXME:  think not necessary - never used
   signout: function (req, res) {
     req.session.destroy(function() {
       res.redirect('/signin');
     });
   },
+  // FIXME:  think not necessary - never used
   checkAuth: function (req, res, next) {
     // checking to see if the user is authenticated
     // grab the token in the header is any
