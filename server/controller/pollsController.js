@@ -1,7 +1,11 @@
 var db = require('../db');
 
 module.exports = {
-  post: function (req, res, next) {
+  // [input] expects req.body to be an object with properties:
+  //  'name', 'private', 'start', 'end', 'creator'
+  // [output] returns status code 201
+  // [side effects] none
+  post: function (req, res) {
     db.models.Poll.create({
       name: req.body.name,
       private: req.body.private,
@@ -14,7 +18,11 @@ module.exports = {
     });
   },
 
-  put: function (req, res, next) {
+  // [input] expects req.body to be an object with properties:
+  //  'PollId', 'UserId'
+  // [output] returns status code 201
+  // [side effects] none
+  put: function (req, res) {
     console.log(req.body);
     db.models.UserPoll.create({
       PollId: req.body.pollId,
@@ -26,11 +34,14 @@ module.exports = {
   },
 
   // recieves a user id and returns all polls they are in
-  get: function(req, res, next) {
+  // [input] expects req.params to have property 'userId'
+  // [output] return status code 201 and an array of Polls
+  // [side effects] None
+  get: function(req, res) {
     // query UserPoll for all polls IDS assossicated with the id
     db.models.UserPoll.findAll({
       where: {
-        UserId: req.params.userid
+        UserId: req.params.userId
       }
     })
     .then(function(result) {
