@@ -1,5 +1,12 @@
 var db = require('../db');
 
+var CHOICE = [
+'choice0Count',
+'choice1Count',
+'choice2Count',
+'choice3Count'
+]
+
 module.exports = {
   // [input] expects req.body to be an object with properties:
   //  'name', 'creator', 'creatorId', 'choiceX' where X is 1-4
@@ -12,14 +19,14 @@ module.exports = {
       name: req.body.name,
       creator: req.body.creator,
       creatorId: req.body.creatorId,
-      choice1: req.body.choice1,
+      choice0: req.body.choice[0],
+      choice0Count: 0,
+      choice1: req.body.choice[1],
       choice1Count: 0,
-      choice2: req.body.choice2,
+      choice2: req.body.choice[2],
       choice2Count: 0,
-      choice3: req.body.choice3,
-      choice3Count: 0,
-      choice4: req.body.choice4,
-      choice4Count: 0
+      choice3: req.body.choice[3],
+      choice3Count: 0
     })
     // returns Relationship rows that belongs to creator
     .then(function (poll) {
@@ -68,18 +75,11 @@ module.exports = {
   // [side effects] increments count for given choice on given poll
   put: function (req, res) {
     console.log(req.body);
-    var key = ''
-    if (req.body.choice === 1) {
-      key = 'choice1Count';
-    } else if (req.body.choice === 2) {
-      key = 'choice2Count';
-    } else if (req.body.choice === 3) {
-      key = 'choice3Count';
-    } else if (req.body.choice === 4) {
-      key = 'choice4Count';
-    } else {
-      res.json(201, 'Not Valid Choice')
-    };
+    if (req.body.choice < 0 ||
+      req.body.choice >= CHOICE.length) {
+      res.json(404,{});
+    }
+    var key = CHOICE[req.body.choice];
 
     db.models.Poll.find({
       where: {
