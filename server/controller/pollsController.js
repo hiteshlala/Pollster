@@ -43,7 +43,7 @@ module.exports = {
         }
       });
     })
-    // returns an object used to create UserPoll rows
+    // returns an array of object used to create UserPoll rows
     .then(function (data) {
       data.push(req.body.creatorId);
       return data.map(function (id) {
