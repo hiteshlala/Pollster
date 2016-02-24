@@ -63,20 +63,41 @@ module.exports = {
 
   // FIXME: change put request
 
-  // // [input] expects req.body to be an object with properties:
-  // //  'PollId', 'UserId'
-  // // [output] returns status code 201
-  // // [side effects] adds user-poll relationship
-  // put: function (req, res) {
-  //   console.log(req.body);
-  //   db.models.UserPoll.create({
-  //     PollId: req.body.pollId,
-  //     UserId: req.body.userId
-  //   })
-  //   .then(function (success) {
-  //     res.json(201);
-  //   });
-  // },
+  // [input] expects req.body to have properties 'userId', 'pollId', 'choice'
+  // [output] on success, returns status code 201
+  // [side effects] increments count for given choice on given poll
+  put: function (req, res) {
+    console.log(req.body);
+    var key = ''
+    if (req.body.choice === 1) {
+      key = 'choice1Count';
+    } else if (req.body.choice === 2) {
+      key = 'choice2Count';
+    } else if (req.body.choice === 3) {
+      key = 'choice3Count';
+    } else if (req.body.choice === 4) {
+      key = 'choice4Count';
+    } else {
+      res.json(201, 'Not Valid Choice')
+    };
+
+    db.models.Poll.find({
+      where: {
+        id: req.body.pollId
+      }
+    })
+    .then(function (poll) {
+      var obj = {};
+      obj[key] = poll[key] + 1;
+      return poll.updateAttributes(obj)
+    })
+    .then(function (poll) {
+      res.json(201, poll);
+    })
+    .catch(function (error) {
+      res.json(404,error);
+    });
+  },
 
   // recieves a user id and returns all polls they are in
   // [input] expects req.params to have property 'userId'
