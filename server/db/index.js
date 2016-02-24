@@ -16,6 +16,7 @@ var User = db.define('User', {
 var Poll = db.define('poll', {
   name: Sequelize.STRING,
   creator: Sequelize.STRING,
+  creatorid: Sequelize.INTEGER,
   choice1: Sequelize.STRING,
   choice1count: Sequelize.INTEGER,
   choice2: Sequelize.STRING,
