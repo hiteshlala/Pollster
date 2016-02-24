@@ -13,7 +13,7 @@ var User = db.define('User', {
 });
 
 // Declares the schema for a given poll, including 4 choices and a var to keep track of the count
-var Poll = db.define('poll', {
+var Poll = db.define('Poll', {
   name: Sequelize.STRING,
   creator: Sequelize.STRING,
   choice1: Sequelize.STRING,
