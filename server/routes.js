@@ -11,20 +11,14 @@ router.post('/signup', controller.auth.signup);
 
 router.get('/users', controller.users.get);
 
-router.get('/events/:username', controller.events.get);
+router.get('/polls/:userid', controller.polls.get);
 
-router.post('/events', controller.events.post);
+router.post('/polls', controller.polls.post);
 
-router.put('/events', controller.events.put);
+router.put('/polls', controller.polls.put);
 
-router.get('/friends/:UserId', controller.friends.get);
+router.get('/friends/:userid', controller.friends.get);
 
 router.post('/friends', controller.friends.post);
-
-router.post('/notifications', controller.notifications.post);
-
-router.get('/notifications/:userid', controller.notifications.get);
-
-router.delete('/notifications', controller.notifications.delete);
 
 module.exports = router;
