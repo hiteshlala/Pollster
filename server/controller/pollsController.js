@@ -2,16 +2,21 @@ var db = require('../db');
 
 module.exports = {
   // [input] expects req.body to be an object with properties:
-  //  'name', 'private', 'start', 'end', 'creator'
+  //  'name', 'creator', 'choiceX', 'choiceXcount' where X is 1-4
   // [output] returns status code 201
   // [side effects] none
   post: function (req, res) {
     db.models.Poll.create({
       name: req.body.name,
-      private: req.body.private,
-      start: req.body.start,
-      end: req.body.end,
-      creator: req.body.creator
+      creator: req.body.creator,
+      choice1: req.body.choice1,
+      choice1count: req.body.choice1count,
+      choice2: req.body.choice2,
+      choice2count: req.body.choice2count,
+      choice3: req.body.choice3,
+      choice3count: req.body.choice3count,
+      choice4: req.body.choice4,
+      choice4count: req.body.choice4count
     })
     .then(function () {
       res.json(201);
