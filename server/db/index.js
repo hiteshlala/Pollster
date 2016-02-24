@@ -25,7 +25,6 @@ var Poll = db.define('poll', {
   choice4: Sequelize.STRING,
   choice4count: Sequelize.INTEGER
 }, {
-  createdAt: false,
   updatedAt: false
 });
 
