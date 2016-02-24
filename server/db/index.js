@@ -1,6 +1,8 @@
 var Sequelize = require('sequelize');
 var db = new Sequelize('latte', 'root', '123');
 
+// Declares the schema for a user
+
 var User = db.define('User', {
   name: Sequelize.STRING,
   email: Sequelize.STRING,
@@ -10,24 +12,28 @@ var User = db.define('User', {
   updatedAt: false
 });
 
-var Event = db.define('Event', {
+// Declares the schema for a given poll, including 4 choices and a var to keep track of the count
+var Poll = db.define('poll', {
   name: Sequelize.STRING,
-  private: Sequelize.INTEGER,
-  start: Sequelize.DATE,
-  end: Sequelize.DATE,
-  creator: Sequelize.STRING
+  creator: Sequelize.STRING,
+  choice1: Sequelize.STRING,
+  choice1count: Sequelize.INTEGER,
+  choice2: Sequelize.STRING,
+  choice2count: Sequelize.INTEGER,
+  choice3: Sequelize.STRING,
+  choice3count: Sequelize.INTEGER,
+  choice4: Sequelize.STRING,
+  choice4count: Sequelize.INTEGER
 }, {
   createdAt: false,
   updatedAt: false
 });
 
+// Declares the join table that creates a relationship between a USER and a POLL
+User.belongsToMany(Poll, {through: 'UserPoll'});
+Poll.belongsToMany(User, {through: 'UserPoll'});
 
-User.belongsToMany(Event, {through: 'UserEvent'});
-Event.belongsToMany(User, {through: 'UserEvent'});
-
-User.belongsToMany(Event, {through: 'Notifications'});
-Event.belongsToMany(User, {through: 'Notifications'});
-
+// Declares the join table that creates friendships between two users
 User.belongsToMany(User, {as: 'Friend', through: 'Relationships' });
 
 db.sync();
