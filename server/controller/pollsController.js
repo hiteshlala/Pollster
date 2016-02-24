@@ -27,7 +27,7 @@ module.exports = {
 
   // recieves a user id and returns all polls they are in
   get: function(req, res, next) {
-    // query Userpoll for all polls IDS assossicated with the id
+    // query UserPoll for all polls IDS assossicated with the id
     db.models.UserPoll.findAll({
       where: {
         UserId: req.params.userid
