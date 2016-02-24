@@ -2,7 +2,7 @@ var db = require('../db');
 
 module.exports = {
   // [input] expects req.body to be an object with properties:
-  //  'name', 'creator', creatorId, 'choiceX' where X is 1-4
+  //  'name', 'creator', 'creatorId', 'choiceX' where X is 1-4
   // [output] returns status code 201
   // [side effects] adds new Poll to Poll table
   //  empty choices will add null to database table
