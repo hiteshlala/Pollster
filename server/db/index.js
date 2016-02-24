@@ -16,14 +16,14 @@ var User = db.define('User', {
 var Poll = db.define('Poll', {
   name: Sequelize.STRING,
   creator: Sequelize.STRING,
+  choice0: Sequelize.STRING,
+  choice0Count: Sequelize.INTEGER,
   choice1: Sequelize.STRING,
   choice1Count: Sequelize.INTEGER,
   choice2: Sequelize.STRING,
   choice2Count: Sequelize.INTEGER,
   choice3: Sequelize.STRING,
-  choice3Count: Sequelize.INTEGER,
-  choice4: Sequelize.STRING,
-  choice4Count: Sequelize.INTEGER
+  choice3Count: Sequelize.INTEGER
 }, {
   updatedAt: false
 });

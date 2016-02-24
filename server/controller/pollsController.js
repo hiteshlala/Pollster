@@ -1,25 +1,32 @@
 var db = require('../db');
 
+var CHOICE_KEYS = [
+'choice0Count',
+'choice1Count',
+'choice2Count',
+'choice3Count'
+]
+
 module.exports = {
   // [input] expects req.body to be an object with properties:
-  //  'name', 'creator', 'creatorId', 'choiceX' where X is 1-4
+  //  'name', 'creator', 'creatorId', 'answer'
   // [output] returns status code 201
   // [side effects] adds new Poll to Poll table
-  //  empty choices will add null to database table
+  //  empty answers will add null to database table
   post: function (req, res) {
     var pollId;
     db.models.Poll.create({
       name: req.body.name,
       creator: req.body.creator,
       creatorId: req.body.creatorId,
-      choice1: req.body.choice1,
+      choice0: req.body.answer[0],
+      choice0Count: 0,
+      choice1: req.body.answer[1],
       choice1Count: 0,
-      choice2: req.body.choice2,
+      choice2: req.body.answer[2],
       choice2Count: 0,
-      choice3: req.body.choice3,
-      choice3Count: 0,
-      choice4: req.body.choice4,
-      choice4Count: 0
+      choice3: req.body.answer[3],
+      choice3Count: 0
     })
     // returns Relationship rows that belongs to creator
     .then(function (poll) {
@@ -63,20 +70,34 @@ module.exports = {
 
   // FIXME: change put request
 
-  // // [input] expects req.body to be an object with properties:
-  // //  'PollId', 'UserId'
-  // // [output] returns status code 201
-  // // [side effects] adds user-poll relationship
-  // put: function (req, res) {
-  //   console.log(req.body);
-  //   db.models.UserPoll.create({
-  //     PollId: req.body.pollId,
-  //     UserId: req.body.userId
-  //   })
-  //   .then(function (success) {
-  //     res.json(201);
-  //   });
-  // },
+  // [input] expects req.body to have properties 'userId', 'pollId', 'choice'
+  // [output] on success, returns status code 201
+  // [side effects] increments count for given choice on given poll
+  put: function (req, res) {
+    console.log(req.body);
+    if (req.body.choice < 0 ||
+      req.body.choice >= CHOICE_KEYS.length) {
+      res.json(404, {});
+    }
+    var key = CHOICE_KEYS[req.body.choice];
+
+    db.models.Poll.find({
+      where: {
+        id: req.body.pollId
+      }
+    })
+    .then(function (poll) {
+      var obj = {};
+      obj[key] = poll[key] + 1;
+      return poll.updateAttributes(obj)
+    })
+    .then(function (poll) {
+      res.json(201, poll);
+    })
+    .catch(function (error) {
+      res.json(404, error);
+    });
+  },
 
   // recieves a user id and returns all polls they are in
   // [input] expects req.params to have property 'userId'
