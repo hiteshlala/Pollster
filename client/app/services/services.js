@@ -136,7 +136,7 @@ angular.module('pollster.services', [])
   // [output]
   // [side effect] friends will contain all friends of userId
   var getFriendsFromDb = function(userId) {
-    var route = '/friends' + userId.toString();
+    var route = '/friends/' + userId.toString();
     return $http({
       method: 'GET',
       url: route
