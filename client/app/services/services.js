@@ -127,8 +127,12 @@ angular.module('scheduler.services', [])
   // [input] userId, friendId
   // [output]
   // [side effect] posts to '/friends' updating Relationships table
-  var addFriendship = function(userId, friendId) {
-
+ var addFriendship = function(userId, friendId) {
+    return $http({
+      method: 'POST',
+      url: '/friends',
+      data: {friendId: friendId, userId: userId}
+    });
   };
 
   var getFriends = function( ) {
