@@ -1,7 +1,7 @@
-angular.module('scheduler', [
-  'scheduler.services',
-  'scheduler.auth',
-  'scheduler.home',
+angular.module('pollster', [
+  'pollster.services',
+  'pollster.auth',
+  'pollster.home',
   'ngRoute'
 ])
 .config(function ($routeProvider, $httpProvider) {
@@ -43,7 +43,7 @@ angular.module('scheduler', [
 .factory('AttachTokens', function ($window) {
   var attach = {
     request: function (object) {
-      var jwt = $window.localStorage.getItem('com.scheduler');
+      var jwt = $window.localStorage.getItem('com.pollster');
       if (jwt) {
         object.headers['x-access-token'] = jwt;
       }

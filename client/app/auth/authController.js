@@ -1,4 +1,4 @@
-angular.module('scheduler.auth', [])
+angular.module('pollster.auth', [])
 
 .controller('AuthController', function ($scope, $window, $location, Auth) {
   $scope.user = {};
@@ -7,7 +7,7 @@ angular.module('scheduler.auth', [])
     console.log('signin function works');
     Auth.signin($scope.user)
       .then(function (token) {
-        $window.localStorage.setItem('com.scheduler', token);
+        $window.localStorage.setItem('com.pollster', token);
         $location.path('/');
       })
       .catch(function (error) {
@@ -19,7 +19,7 @@ angular.module('scheduler.auth', [])
     console.log('signup function works');
     Auth.signup($scope.user)
       .then(function (token) {
-        $window.localStorage.setItem('com.scheduler', token)
+        $window.localStorage.setItem('com.pollster', token)
         $location.path('/');
       })
       .catch(function (error) {
