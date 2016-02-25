@@ -18,13 +18,16 @@
       1. [Server Design](#server-design)
       1. [Database Design](#database-design)
       1. [Client Design](#client-design)
-    1. [Tasks](#tasks)
+    1. [Roadmap](#roadmap)
+      1. [Features To Be Added](#features-to-be-added)
 1. [Team](#team)
 1. [Contributing](#contributing)
 
 ## Usage
 
-> Some usage instructions
+> Create and account
+> Add friends from user base
+> Create a poll - and see what your friends think!
 
 ## Requirements
 
@@ -40,7 +43,7 @@
 - react 0.14.7
 - sequelize 3.19.3
 
-### ClientSide
+### Client Side
 - angular 1.5.0
 - angular-route 1.5.0
 
