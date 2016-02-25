@@ -1,6 +1,9 @@
 var db = require('../db');
 
 module.exports = {
+  // [input] recieves userId and friendId on req.body
+  // [output] returns the entry
+  // [side effects] adds a friend relationship into Relationships
   post: function(req, res) {
     console.log(req.body)
     var user1 = req.body.userId;
@@ -12,23 +15,39 @@ module.exports = {
       res.send(201,data);
     });
   },
+
+  // [input] recieves a user id on req.params
+  // [output] returns an array of firend objects 
+  // [side effects] none
   get: function(req, res) {
-    console.log(req.params)
+    req.params.userId = Number(req.params.userId);
     db.models.Relationships.findAll({
       where: {
         $or: [
-          {FriendId: req.params.UserId},
-          {UserId: req.params.UserId}
+          {FriendId: req.params.userId},
+          {UserId: req.params.userId}
         ]
       }
-    }).then(function(data) {
+    })
+    .then(function(data) {
       data = data.map(function(item) {
-        if(Number(item.UserId) === Number(req.params.UserId)) {
+        if(Number(item.UserId) === Number(req.params.userId)) {
           return item.FriendId;
         } else {
           return item.UserId;
         }
       });
+      return data;
+    })
+    .then(function(userIds) {
+      return db.models.User.findAll({
+        attributes: [ 'name', 'email', 'id'],
+        where: {
+          id: { $in: userIds }
+        }
+      });
+    })
+    .then(function(data) {
       res.json(201,data);
     });
   }
