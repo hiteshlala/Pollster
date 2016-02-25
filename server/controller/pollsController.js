@@ -121,5 +121,17 @@ module.exports = {
     .then(function(listOfPolls) {
       res.status(200).send(listOfPolls);
     });
+  },
+
+  getOne: function(req, res) {
+    // query UserPoll for all polls IDS assossicated with the id
+    db.models.Poll.findOne({
+      where: {
+        id: req.params.pollId
+      }
+    })
+    .then(function(poll) {
+      res.status(200).send(poll);
+    });
   }
 };
