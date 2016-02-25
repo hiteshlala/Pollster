@@ -64,7 +64,7 @@ angular.module('pollster.services', [])
     })
     .then(function(data) {
       allUserPolls = data;
-      cb();
+      return;
     })
   };
 
