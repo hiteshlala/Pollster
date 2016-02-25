@@ -55,7 +55,7 @@ angular.module('scheduler.services', [])
   var currentPollIndex;
 
   // [input] userId
-  // [output] 
+  // [output]
   // [side effects] add polls to allUserPolls
   var getPollsFromDb = function(userId) {
 
@@ -64,9 +64,9 @@ angular.module('scheduler.services', [])
   var returnUserPolls = function() {
     return allUserPolls;
   }
- 
+
   // [input] pollId, choice( integer 0-3)
-  // [output] 
+  // [output]
   // [side effects] updates the poll answer count
   var voteOnPoll = function(pollId, choice) {
 
@@ -88,9 +88,18 @@ angular.module('scheduler.services', [])
   };
 
   // [input] recieves object with poll data
-  // [output] 
+  // [output]
   // [side effects] sends a post request to /polls put
   var createPoll = function(pollObject) {
+    return $http({
+      method: 'POST',
+      url: '/polls',
+      data: pollObject
+    })
+    .then(function (res) {
+      // To be determined: do we handle a redirect here to home view?
+      console.log(res);
+    });
 
   };
 
@@ -109,7 +118,7 @@ angular.module('scheduler.services', [])
   var friends = [];
 
   // [input] userId
-  // [output] 
+  // [output]
   // [side effect] friends will contain all friends of userId
   var getFriendsFromDb = function(userId) {
 
