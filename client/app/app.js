@@ -7,12 +7,12 @@ angular.module('scheduler', [
 .config(function ($routeProvider, $httpProvider) {
   $routeProvider
     .when('/', {
-      templateUrl: 'app/home/home.html',
+      templateUrl: 'app/home/homeView.html',
       controller: 'HomeController',
       authenticate: true
     })
     .when('/landing', {
-      templateUrl: 'app/landing/landing.html'
+      templateUrl: 'app/landing/landingView.html'
     })
     .when('/signup', {
       templateUrl: 'app/auth/signup.html',
@@ -21,6 +21,21 @@ angular.module('scheduler', [
     .when('/signin', {
       templateUrl: 'app/auth/signin.html',
       controller: 'AuthController'
+    })
+    .when('/polls', {
+      templateUrl: 'app/poll/pollView.html',
+      controller: 'PollController',
+      authenticate: true
+    })
+    .when('/create', {
+      templateUrl: 'app/createPoll/createPollView.html',
+      controller: 'CreatePollController',
+      authenticate: true
+    })
+    .when('/friends', {
+      templateUrl: 'app/friends/friendsView.html',
+      controller: 'FriendsController',
+      authenticate: true
     });
 
     $httpProvider.interceptors.push('AttachTokens');
