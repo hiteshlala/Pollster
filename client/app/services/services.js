@@ -39,8 +39,9 @@ angular.module('pollster.services', [])
     signup: signup,
     isAuth: isAuth,
     signout: signout
-}
+  };
 })
+
 .factory('Poll', function($http) {
 
   var allUserPolls = [];
@@ -57,12 +58,12 @@ angular.module('pollster.services', [])
     .then(function(data) {
       allUserPolls = data;
       return;
-    })
+    });
   };
 
   var returnUserPolls = function() {
     return allUserPolls;
-  }
+  };
 
   // [input] pollId, choice( integer 0-3)
   // [output] updated poll
@@ -97,7 +98,7 @@ angular.module('pollster.services', [])
       })
       .then(function (poll) {
         return poll;
-      });  
+      });
     };
 
   // [input] recieves object with poll data
@@ -110,9 +111,7 @@ angular.module('pollster.services', [])
       data: pollObject
     })
     .then(function (res) {
-      // To be determined: do we handle a redirect here to home view?
-      console.log(res);
-      res.send(201);
+      return;
     });
 
   };
