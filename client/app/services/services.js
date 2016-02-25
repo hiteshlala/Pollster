@@ -52,7 +52,10 @@ angular.module('scheduler.services', [])
 
   };
 
-
+  var returnUserPolls = function() {
+    return allUserPolls;
+  }
+ 
   // [input] pollId, choice( integer 0-3)
   // [output] 
   // [side effects] updates the poll answer count
@@ -81,6 +84,15 @@ angular.module('scheduler.services', [])
   var createPoll = function(pollObject) {
 
   };
+
+  return {
+    getPollsFromDb: getPollsFromDb,
+    voteOnPoll: voteOnPoll,
+    setCurrentPollIndex: setCurrentPollIndex,
+    getCurrentPoll: getCurrentPoll,
+    createPoll: createPoll,
+    returnUserPolls: returnUserPolls
+  };
 })
 
 .factory('Friend', function($http) {
@@ -90,7 +102,7 @@ angular.module('scheduler.services', [])
   // [input] userId
   // [output] 
   // [side effect] friends will contain all friends of userId
-  var getFriends = function(userId) {
+  var getFriendsFromDb = function(userId) {
 
   };
 
@@ -99,5 +111,15 @@ angular.module('scheduler.services', [])
   // [side effect] posts to '/friends' updating Relationships table
   var addFriendship = function(userId, friendId) {
 
+  };
+
+  var getFriends = function( ) {
+    return friends;
+  };
+
+  return {
+    getFriends: getFriends,
+    addFriendship: addFriendship,
+    getFriendsFromDb: getFriendsFromDb
   };
 });
