@@ -1,4 +1,4 @@
-angular.module('scheduler.services', [])
+angular.module('pollster.services', [])
 
 .factory('Auth', function ($http, $location, $window) {
   var userId;
@@ -32,11 +32,11 @@ angular.module('scheduler.services', [])
   };
 
   var isAuth = function () {
-    return !!$window.localStorage.getItem('com.scheduler');
+    return !!$window.localStorage.getItem('com.pollster');
   };
 
   var signout = function () {
-    $window.localStorage.removeItem('com.scheduler');
+    $window.localStorage.removeItem('com.pollster');
     $location.path('/landing');
   };
 
