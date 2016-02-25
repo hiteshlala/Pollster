@@ -17,6 +17,9 @@ router.post('/polls', controller.polls.post);
 
 router.put('/polls', controller.polls.put);
 
+router.get('/onePoll/:pollId', controller.polls.getOne);
+
+
 router.get('/friends/:userId', controller.friends.get);
 
 router.post('/friends', controller.friends.post);
