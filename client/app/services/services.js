@@ -66,10 +66,18 @@ angular.module('pollster.services', [])
   }
 
   // [input] pollId, choice( integer 0-3)
-  // [output]
+  // [output] updated poll
   // [side effects] updates the poll answer count
   var voteOnPoll = function(pollId, choice) {
-
+    return $http({
+      method: 'PUT',
+      url: '/polls',
+      data: {pollId: pollId, choice: choice}
+    })
+    .then(function (poll) {
+      allUserPolls[currentPollIndex] = poll;
+      return poll;
+    });
   };
 
   // [input] indexof array
