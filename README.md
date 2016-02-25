@@ -1,6 +1,6 @@
-# Group Event Planner
+# Pollster
 
-> A way to check your friends schedules to plan an event
+> A way to solicit your friends opinions on a decision
 
 ## Team
 
@@ -25,9 +25,9 @@
 
 ## Usage
 
-> Create and account
-> Add friends from user base
-> Create a poll - and see what your friends think!
+1. Create and account
+1. Add friends from user base
+1. Create a poll - and see what your friends think!
 
 ## Requirements
 
@@ -40,7 +40,6 @@
 - grunt 0.4.5
 - jwt-simple 0.4.1
 - mysql 2.10.2
-- react 0.14.7
 - sequelize 3.19.3
 
 ### Client Side
