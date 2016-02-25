@@ -6,16 +6,16 @@
     <div ng-model="poll">
       <div class="pollHeading">{{poll.name}}  Created By: {{poll.creator}}</div>
         <div>
-          <span class="choiceName"> {{poll.choice0}} </span>  <span class="voteCount"> Votes: {{poll.choice0Count}} </span> <button ng-click="vote(0)">Vote</button>
-        </div>
-        <div>   
-          <span class="choiceName"> {{poll.choice1}} </span>  <span class="voteCount"> Votes: {{poll.choice1Count}} </span> <button ng-click="vote(1)">Vote</button>
-        </div>
-        <div>  
-          <span class="choiceName"> {{poll.choice2}} </span>  <span class="voteCount"> Votes: {{poll.choice2Count}} </span> <button ng-click="vote(2)">Vote</button>
+          <span class="choiceName"> {{poll.choice0}} </span>  <span class="voteCount"> Votes: {{poll.choice0Count}} </span> <button ng-hide="isusercreator()"ng-click="vote(0)">Vote</button>
         </div>
         <div>
-          <span class="choiceName"> {{poll.choice3}} </span>  <span class="voteCount"> Votes: {{poll.choice3Count}} </span> <button ng-click="vote(3)">Vote</button>
+          <span class="choiceName"> {{poll.choice1}} </span>  <span class="voteCount"> Votes: {{poll.choice1Count}} </span> <button ng-hide="isusercreator()"ng-click="vote(1)">Vote</button>
+        </div>
+        <div>
+          <span class="choiceName"> {{poll.choice2}} </span>  <span class="voteCount"> Votes: {{poll.choice2Count}} </span> <button ng-hide="isusercreator()"ng-click="vote(2)">Vote</button>
+        </div>
+        <div>
+          <span class="choiceName"> {{poll.choice3}} </span>  <span class="voteCount"> Votes: {{poll.choice3Count}} </span> <button ng-hide="isusercreator()"ng-click="vote(3)">Vote</button>
         </div>
       </div>
     </div>

@@ -57,12 +57,12 @@ angular.module('pollster.services', [])
     .then(function(data) {
       allUserPolls = data;
       return;
-    })
+    });
   };
 
   var returnUserPolls = function() {
     return allUserPolls;
-  }
+  };
 
   // [input] pollId, choice( integer 0-3)
   // [output] updated poll
@@ -93,11 +93,11 @@ angular.module('pollster.services', [])
    var getCurrentPoll = function(id) {
       return $http({
         method: 'GET',
-        url: '/polls/' + id,
+        url: '/onePoll/' + id,
       })
       .then(function (poll) {
         return poll;
-      });  
+      });
     };
 
   // [input] recieves object with poll data
