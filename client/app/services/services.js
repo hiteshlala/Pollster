@@ -37,5 +37,89 @@ angular.module('scheduler.services', [])
     signup: signup,
     isAuth: isAuth,
     signout: signout
+  };
+})
+
+.factory('Poll', function($http) {
+
+  var allUserPolls = [];
+  var currentPollIndex;
+
+  // [input] userId
+  // [output] 
+  // [side effects] add polls to allUserPolls
+  var getPollsFromDb = function(userId) {
+
+  };
+
+  var returnUserPolls = function() {
+    return allUserPolls;
   }
+ 
+  // [input] pollId, choice( integer 0-3)
+  // [output] 
+  // [side effects] updates the poll answer count
+  var voteOnPoll = function(pollId, choice) {
+
+  };
+
+  // [input] indexof array
+  // [output] undefined
+  // [side effects] currentPollIndex gets set
+  var setCurrentPollIndex = function(index) {
+    currentPollIndex = index;
+  };
+
+  // gets called when someone clicks on a poll - might not need it
+  // [input] none
+  // [output] pollObject
+  // [side effects]
+  var getCurrentPoll = function() {
+    return allUserPolls[currentPollIndex];
+  };
+
+  // [input] recieves object with poll data
+  // [output] 
+  // [side effects] sends a post request to /polls put
+  var createPoll = function(pollObject) {
+
+  };
+
+  return {
+    getPollsFromDb: getPollsFromDb,
+    voteOnPoll: voteOnPoll,
+    setCurrentPollIndex: setCurrentPollIndex,
+    getCurrentPoll: getCurrentPoll,
+    createPoll: createPoll,
+    returnUserPolls: returnUserPolls
+  };
+})
+
+.factory('Friend', function($http) {
+  // stores an array of friend objects
+  var friends = [];
+
+  // [input] userId
+  // [output] 
+  // [side effect] friends will contain all friends of userId
+  var getFriendsFromDb = function(userId) {
+
+  };
+
+  // [input] userId, friendId
+  // [output]
+  // [side effect] posts to '/friends' updating Relationships table
+  var addFriendship = function(userId, friendId) {
+
+  };
+
+  var getFriends = function( ) {
+    return friends;
+  };
+
+  return {
+    getFriends: getFriends,
+    addFriendship: addFriendship,
+    getFriendsFromDb: getFriendsFromDb
+  };
 });
