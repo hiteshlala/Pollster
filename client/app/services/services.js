@@ -1,12 +1,6 @@
 angular.module('pollster.services', [])
 
 .factory('Auth', function ($http, $location, $window) {
-  var userId;
-
-  var getUserId = function () {
-    return userId;
-  }
-
   var signin = function (user) {
     return $http({
       method: 'POST',
@@ -14,8 +8,7 @@ angular.module('pollster.services', [])
       data: user
     })
     .then(function (res) {
-      userId = res.data.userId;
-      return res.data.token;
+      return {token: res.data.token, id: res.data.id, name: res.data.name};
     });
   };
 
@@ -26,8 +19,7 @@ angular.module('pollster.services', [])
       data: user
     })
     .then(function (res) {
-      userId = res.data.userId;
-      return res.data.token;
+      return {token: res.data.token, id: res.data.id, name: res.data.name};
     });
   };
 
@@ -37,6 +29,8 @@ angular.module('pollster.services', [])
 
   var signout = function () {
     $window.localStorage.removeItem('com.pollster');
+    $window.localStorage.removeItem('com.id');
+    $window.localStorage.removeItem('com.name');
     $location.path('/landing');
   };
 
@@ -44,9 +38,7 @@ angular.module('pollster.services', [])
     signin: signin,
     signup: signup,
     isAuth: isAuth,
-    signout: signout,
-    getUserId: getUserId
-  };
+    signout: signout
 })
 
 .factory('Poll', function($http) {
@@ -114,6 +106,7 @@ angular.module('pollster.services', [])
     .then(function (res) {
       // To be determined: do we handle a redirect here to home view?
       console.log(res);
+      res.send(201);
     });
 
   };

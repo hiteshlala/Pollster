@@ -6,20 +6,23 @@ angular.module('pollster.auth', [])
   $scope.signin = function () {
     console.log('signin function works');
     Auth.signin($scope.user)
-      .then(function (token) {
-        $window.localStorage.setItem('com.pollster', token);
+      .then(function (response) {
+        $window.localStorage.setItem('com.pollster', response.token);
+        $window.localStorage.setItem('com.id', response.id);
+        $window.localStorage.setItem('com.name', response.name);
         $location.path('/');
       })
       .catch(function (error) {
         console.error(error);
       });
-  }
+  };
 
   $scope.signup = function () {
-    console.log('signup function works');
     Auth.signup($scope.user)
-      .then(function (token) {
-        $window.localStorage.setItem('com.pollster', token)
+      .then(function (response) {
+        $window.localStorage.setItem('com.pollster', response.token);
+        $window.localStorage.setItem('com.id', response.id);
+        $window.localStorage.setItem('com.name', response.name);
         $location.path('/');
       })
       .catch(function (error) {
