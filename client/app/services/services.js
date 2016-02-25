@@ -58,7 +58,14 @@ angular.module('pollster.services', [])
   // [output]
   // [side effects] add polls to allUserPolls
   var getPollsFromDb = function(userId) {
-
+    return $http({
+      method: 'GET',
+      url: '/polls/' + userId
+    })
+    .then(function(data) {
+      allUserPolls = data;
+      return;
+    })
   };
 
   var returnUserPolls = function() {
