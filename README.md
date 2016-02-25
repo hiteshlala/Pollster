@@ -28,17 +28,21 @@
 
 ## Requirements
 
+### Server Side
 - Node 0.10.x
-- "bcrypt-nodejs": "0.0.3",
-- "body-parser": "^1.15.0",
-- "express": "^4.13.4",
-- "express-session": "^1.13.0",
-- "grunt": "^0.4.5",
-- "jwt-simple": "^0.4.1",
-- "mysql": "^2.10.2",
-- "react": "^0.14.7",
-- "sequelize": "^3.19.3"
+- bcrypt-nodejs 0.0.3
+- body-parser 1.15.0
+- express 4.13.4
+- express-session": "^1.13.0
+- grunt 0.4.5
+- jwt-simple 0.4.1
+- mysql 2.10.2
+- react 0.14.7
+- sequelize 3.19.3
 
+### ClientSide
+- angular 1.5.0
+- angular-route 1.5.0
 
 ## Development
 
@@ -54,8 +58,8 @@ bower install
 ### Project Details
 
 #### Server Design
-Server was implemented using Node and Express. The API is described below:
 
+Server was implemented using Node and Express. The API is described below:
 
 1. /signin , POST,  Request Body: {name': string, 'password': password},  Searches User table if not found redirects to signin. If found compares passwords if incorrect redirects signin if correct it returns token, Controller: controller.auth.signin
 1. /signup, POST, Request Body: {'name': string, 'email': string, 'password': string }, Creates a user in the Users table (cryptyifies password) then creates token and returns token and userId to client, ensures no duplicate username, Controller: controller.auth.signup
@@ -69,8 +73,50 @@ Server was implemented using Node and Express. The API is described below:
 
 #### Database Design
 
+Using Mysql database with Sequelize.  There are four tables in the database their names and schema follow:
+1. __Users__
+  1. id - a number unique
+  1. name - a string
+  1. email - a string
+  1. password - a hashed string
+ 
+1. __Polls__
+  1. id - a number unique
+  1. name - a string
+  1. creator - a string
+  1. creatorId - a number
+  1. choice0 - a string
+  1. choice0Count - a number
+  1. choice1 - a string
+  1. choice1Count - a number
+  1. choice2 - a string
+  1. choice2Count - a number
+  1. choice3 - a string
+  1. choice3Count - a number
+  1. createdAt - a date time
+  
+1. __Relationships__
+  1. UserId - a number
+  1. FriendId - a number
+
+1. __UserPoll__ 
+  1. PollId - a number
+  1. UserId - a number
 
 #### Client Design
+
+Front end was built using Angular.  The Angular routes are shown below:
+
+|  URL      | Controller            | Template            | Authenticate |
+|:---------:|:---------------------:|:-------------------:|:------------:|
+| /         | HomeController        | homeView.html       | TRUE         |
+| /signin   | AuthController        | signin.html         | FALSE        |
+| /signup   | AuthController        | signup.html         | FALSE        |
+| /polls    | PollController        | pollView.html       | TRUE         |
+| /create   | CreatePollController  | createPollView.html | TRUE         |
+| /friends  | FriendsController     | friendsView.html    | TRUE         |
+| /landing  | (none)                | landingView.html    | FALSE        |
+NOTE: when authentication fails, we redirect to landing
 
 ### Roadmap
 
