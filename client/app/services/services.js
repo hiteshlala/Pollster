@@ -75,6 +75,7 @@ angular.module('pollster.services', [])
       data: {pollId: pollId, choice: choice}
     })
     .then(function (poll) {
+      allUserPolls[currentPollIndex] = poll;
       return poll;
     });
   };
