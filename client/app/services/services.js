@@ -146,7 +146,7 @@ angular.module('pollster.services', [])
       return;
     });
   };
-var getAllUsers = function () {
+var getAllUsersFromDb = function () {
   return $http({
     method: 'GET',
     url: '/users'
@@ -170,10 +170,15 @@ var getAllUsers = function () {
   var getFriends = function( ) {
     return friends;
   };
+  var getUsers = function () {
+    return allUsers;
+  };
 
   return {
     getFriends: getFriends,
     addFriendship: addFriendship,
-    getFriendsFromDb: getFriendsFromDb
+    getFriendsFromDb: getFriendsFromDb,
+    getUsers: getUsers,
+    getAllUsersFromDb: getAllUsersFromDb
   };
 });
