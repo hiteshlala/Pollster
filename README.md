@@ -128,7 +128,7 @@ Server was implemented using Node and Express. The API is described below:
 Using Mysql database with Sequelize.  There are four tables in the database their names and schema follow:
 
 1. __Users__
-  *. id - a number unique
+  * id - a number unique
   * name - a string
   * email - a string
   * password - a hashed string
@@ -173,7 +173,13 @@ NOTE: when authentication fails, we redirect to landing
 
 ### Roadmap
 
-View the project roadmap [here](https://github.com/TepidLatteGreenfield/tepidLatte2/issues)
+[View the current project issues](https://github.com/TepidLatteGreenfield/tepidLatte2/issues)
+
+#### Features To Be Added
+ * Ability to view and create anonymous polls from landing page without creating an account
+ * Prevent users from voting multiple times on a poll
+ * Use sockets to allow real time updates of pollView
+
 
 
 ## Contributing
