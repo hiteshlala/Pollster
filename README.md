@@ -62,10 +62,20 @@ bower install
 Server was implemented using Node and Express. The API is described below:
 
 1. __/signin__ , POST,
- Request Body: {name': string, 'password': password},
- Searches User table if not found redirects to signin. If found compares passwords if incorrect redirects signin if correct it returns token, Controller: controller.auth.signin
 
-1. __/signup__, POST, Request Body: {'name': string, 'email': string, 'password': string }, Creates a user in the Users table (cryptyifies password) then creates token and returns token and userId to client, ensures no duplicate username, Controller: controller.auth.signup
+ Request Body: {name': string, 'password': password},
+
+ Searches User table if not found redirects to signin. If found compares passwords if incorrect redirects signin if correct it returns token,
+
+ Controller: controller.auth.signin
+
+1. __/signup__, POST,
+
+ Request Body: {'name': string, 'email': string, 'password': string },
+
+ Creates a user in the Users table (cryptyifies password) then creates token and returns token and userId to client, ensures no duplicate username, 
+
+ Controller: controller.auth.signup
 
 1. __/users__, GET, Returns an array with object for each user in database, Controller: controller.users.get
 
