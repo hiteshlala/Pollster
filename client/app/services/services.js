@@ -39,8 +39,8 @@ angular.module('pollster.services', [])
     signup: signup,
     isAuth: isAuth,
     signout: signout
+}
 })
-
 .factory('Poll', function($http) {
 
   var allUserPolls = [];
@@ -90,9 +90,15 @@ angular.module('pollster.services', [])
   // [input] none
   // [output] pollObject
   // [side effects]
-  var getCurrentPoll = function() {
-    return allUserPolls[currentPollIndex];
-  };
+   var getCurrentPoll = function(id) {
+      return $http({
+        method: 'GET',
+        url: '/polls/' + id,
+      })
+      .then(function (poll) {
+        return poll;
+      });  
+    };
 
   // [input] recieves object with poll data
   // [output]

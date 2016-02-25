@@ -4,6 +4,7 @@ angular.module('pollster', [
   'pollster.home',
   'pollster.createPoll',
   'pollster.friend',
+  'pollster.poll',
   'ngRoute'
 ])
 .config(function ($routeProvider, $httpProvider) {
