@@ -130,15 +130,32 @@ angular.module('pollster.services', [])
 
 .factory('Friend', function($http) {
   // stores an array of friend objects
+  var allUsers = [];
   var friends = [];
-
   // [input] userId
   // [output]
   // [side effect] friends will contain all friends of userId
   var getFriendsFromDb = function(userId) {
-
+    var route = '/friends' + userId.toString();
+    return $http({
+      method: 'GET',
+      url: route
+    })
+    .then(function (data) {
+      friends = data;
+      return;
+    });
   };
-
+var getAllUsers = function () {
+  return $http({
+    method: 'GET',
+    url: '/users'
+  })
+  .then(function (data) {
+    allUsers = data;
+    return;
+  });
+};
   // [input] userId, friendId
   // [output]
   // [side effect] posts to '/friends' updating Relationships table
