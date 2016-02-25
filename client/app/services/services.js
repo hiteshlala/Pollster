@@ -1,6 +1,12 @@
 angular.module('scheduler.services', [])
 
 .factory('Auth', function ($http, $location, $window) {
+  var userId;
+
+  var getUserId = function () {
+    return userId;
+  }
+
   var signin = function (user) {
     return $http({
       method: 'POST',
@@ -8,6 +14,7 @@ angular.module('scheduler.services', [])
       data: user
     })
     .then(function (res) {
+      userId = res.data.userId;
       return res.data.token;
     });
   };
@@ -19,6 +26,7 @@ angular.module('scheduler.services', [])
       data: user
     })
     .then(function (res) {
+      userId = res.data.userId;
       return res.data.token;
     });
   };
@@ -36,7 +44,8 @@ angular.module('scheduler.services', [])
     signin: signin,
     signup: signup,
     isAuth: isAuth,
-    signout: signout
+    signout: signout,
+    getUserId: getUserId
   };
 })
 
