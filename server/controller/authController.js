@@ -22,7 +22,7 @@ module.exports = {
           }
           if (isMatch) {
             var token = jwt.encode(user, 'latte');
-            res.json({token: token , userId: user.id});
+            res.json({token: token , id: user.id, name: user.name});
           } else {
             return next(new Error('Wrong Password'));
           }
@@ -50,7 +50,7 @@ module.exports = {
           if(created) {
             user.updateAttributes({email: req.body.email, password: hash});
             var token = jwt.encode(user, 'latte');
-            res.json({token: token, userId: user.id });
+            res.json({token: token , id: user.id, name: user.name});
           } else {
             // send a message about creating a new username
             // it already exists
@@ -80,7 +80,7 @@ module.exports = {
     if (!token) {
       next(new Error('No token'));
     } else {
-      var user = jwt.decode(token, 'secret');
+      var user = jwt.decode(token, 'latte');
       db.models.User.findOne({where: {name: req.body.name}})
         .then(function (foundUser) {
           if (foundUser) {
