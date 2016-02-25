@@ -61,7 +61,9 @@ bower install
 
 Server was implemented using Node and Express. The API is described below:
 
-1. __/signin__ , POST,  Request Body: {name': string, 'password': password},  Searches User table if not found redirects to signin. If found compares passwords if incorrect redirects signin if correct it returns token, Controller: controller.auth.signin
+1. __/signin__ , POST,
+ Request Body: {name': string, 'password': password},
+ Searches User table if not found redirects to signin. If found compares passwords if incorrect redirects signin if correct it returns token, Controller: controller.auth.signin
 
 1. __/signup__, POST, Request Body: {'name': string, 'email': string, 'password': string }, Creates a user in the Users table (cryptyifies password) then creates token and returns token and userId to client, ensures no duplicate username, Controller: controller.auth.signup
 
@@ -74,7 +76,7 @@ Server was implemented using Node and Express. The API is described below:
 
 1. __/friends/:userId__, GET, Request Params: {userId: number}, Returns an array of Ids of all the users friends, Controller: controller.friends.get
 
-1.__/friends__, POST, Request Body: {'friendId':number, 'userId':number}, Adds userid and user2id to Relationships table. Returns a copy of entry, Controller: controller.friends.post
+1. __/friends__, POST, Request Body: {'friendId':number, 'userId':number}, Adds userid and user2id to Relationships table. Returns a copy of entry, Controller: controller.friends.post
 
 
 #### Database Design
