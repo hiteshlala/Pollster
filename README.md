@@ -33,7 +33,7 @@
 - bcrypt-nodejs 0.0.3
 - body-parser 1.15.0
 - express 4.13.4
-- express-session": "^1.13.0
+- express-session 1.13.0
 - grunt 0.4.5
 - jwt-simple 0.4.1
 - mysql 2.10.2
@@ -74,6 +74,7 @@ Server was implemented using Node and Express. The API is described below:
 #### Database Design
 
 Using Mysql database with Sequelize.  There are four tables in the database their names and schema follow:
+
 1. __Users__
   1. id - a number unique
   1. name - a string
