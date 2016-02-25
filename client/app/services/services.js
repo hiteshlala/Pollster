@@ -97,6 +97,7 @@ angular.module('scheduler.services', [])
       data: pollObject
     })
     .then(function (res) {
+      // To be determined: do we handle a redirect here to home view?
       console.log(res);
     });
 
