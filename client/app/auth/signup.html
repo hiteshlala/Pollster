@@ -1,10 +1,10 @@
 <div id='signup'>
-  <h1>signup</h1>
+  <h2>Signup</h2>
   <form name="signupForm" ng-submit='signup()'>
-    <input type='text' ng-model='user.name'>
-    <input type='text' ng-model='user.email'>
-    <input type="password" ng-model='user.password'>
-    <button>signup</button>
+    <p>Create a User Name: <input type='text' ng-model='user.name'></p>
+    <p>Your Email: <input type='text' ng-model='user.email'></p>
+    <p>Create Password: <input type="password" ng-model='user.password'></p>
+    <button>Signup</button>
   </form>
-  <a href="#/signin">Already have an account? <strong>Signin</strong> ...</a>
+  <p><a href="#/signin">Already have an account? <strong>Signin</strong> ...</a></p>
 </div>
