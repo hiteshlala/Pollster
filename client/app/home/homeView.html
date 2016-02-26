@@ -1,14 +1,12 @@
-<h1>Home brah</h1>
-
+<h1>Pollster HomeView</h1>
+<a href="/#/create"><button>Create Poll</button></a>
+<a href="/#/friends"><button>Add Friends</button></a>
 <button ng-click='signout()'>Sign out</button>
-<a href="/#/create">
-  <button>Create Poll</button>
-</a>
 
 <h2>My Polls</h2>
 <ul>
-  <a ng-repeat="poll in userPolls" 
-    href="/#/polls" 
+  <a ng-repeat="poll in userPolls"
+    href="/#/polls"
     ng-click=setPollId(poll.id)>
       <li>{{poll.name}}</li>
   </a>

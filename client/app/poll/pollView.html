@@ -1,8 +1,11 @@
 <div id='poll'>
   <h2>Poll View</h2>
-  <div ng-app="pollster.poll" ng-controller="PollController">
-    
+  <a href="/#/"><button>See all Polls</button></a>
+  <a href="/#/create"><button>Create Poll</button></a>
+  <a href="/#/friends"><button>Add Friends</button></a>
+  <button ng-click='signout()'>Sign out</button>
 
+  <div ng-app="pollster.poll" ng-controller="PollController">
     <div ng-model="poll">
       <div class="pollHeading">{{poll.name}}  Created By: {{poll.creator}}</div>
         <p>
@@ -19,6 +22,6 @@
         </p>
       </div>
     </div>
-    <p><a href="/#/">Return to Home View</a></p>
+
   </div>
 </div>
