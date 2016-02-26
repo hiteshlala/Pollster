@@ -17,7 +17,6 @@ angular.module('pollster.poll', [])
     Poll.getPollById($window.localStorage.getItem('currentPollId'))
     .then(function (poll) {
       $scope.poll = poll;
-      console.log('controller: ',$scope.poll);
     });
   };
 

@@ -88,7 +88,6 @@ angular.module('pollster.services', [])
         url: '/onePoll/' + pollId,
       })
       .then(function (res) {
-        console.log('this:', res.data);
         return res.data;
       });
     };
