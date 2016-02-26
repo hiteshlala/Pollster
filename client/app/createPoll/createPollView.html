@@ -1,5 +1,8 @@
 <div ng-controller='CreatePollController'>
   <h2>Create A New Poll</h2>
+  <a href="/#/"><button>See all Polls</button></a>
+  <a href="/#/friends"><button>Add Friends</button></a>
+  <button ng-click='signout()'>Sign out</button>
   <form ng-submit='createPoll()'>
     <p>Enter Your Question: <input ng-model='poll.name' /></p>
     <p>Enter Answer Option 1: <input ng-model='poll.answer[0]' /></p>

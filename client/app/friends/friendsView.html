@@ -1,6 +1,8 @@
 <div>
 <h2>Friends</h2>
-
+<a href="/#/"><button>See all Polls</button></a>
+<a href="/#/create"><button>Create Poll</button></a>
+<button ng-click='signout()'>Sign out</button>
 <div>
   <h3>Current Friends</h3>
   <p class='userList' ng-repeat='friend in allFriends.data track by $index'> User Name: {{friend.name}} Email: {{friend.email}}</p>
