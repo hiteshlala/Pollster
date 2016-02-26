@@ -44,8 +44,8 @@ angular.module('pollster.services', [])
 
 .factory('Poll', function($http) {
 
-  var allUserPolls = [];
-  var currentPollIndex;
+  // var allUserPolls = [];
+  // var currentPollIndex;
 
   // [input] userId
   // [output]
@@ -55,14 +55,9 @@ angular.module('pollster.services', [])
       method: 'GET',
       url: '/polls/' + userId
     })
-    .then(function(data) {
-      allUserPolls = data;
-      return;
+    .then(function(res) {
+      return res.data;
     });
-  };
-
-  var returnUserPolls = function() {
-    return allUserPolls;
   };
 
   // [input] pollId, choice( integer 0-3)
@@ -75,23 +70,15 @@ angular.module('pollster.services', [])
       data: {pollId: pollId, choice: choice}
     })
     .then(function (poll) {
-      allUserPolls[currentPollIndex] = poll;
       return poll;
     });
-  };
-
-  // [input] indexof array
-  // [output] undefined
-  // [side effects] currentPollIndex gets set
-  var setCurrentPollIndex = function(index) {
-    currentPollIndex = index;
   };
 
   // gets called when someone clicks on a poll - might not need it
   // [input] none
   // [output] pollObject
   // [side effects]
-   var getCurrentPoll = function(id) {
+   var getPollById = function(id) {
       return $http({
         method: 'GET',
         url: '/onePoll/' + id,
@@ -109,20 +96,14 @@ angular.module('pollster.services', [])
       method: 'POST',
       url: '/polls',
       data: pollObject
-    })
-    .then(function (res) {
-      return;
     });
-
   };
 
   return {
     getPollsFromDb: getPollsFromDb,
     voteOnPoll: voteOnPoll,
-    setCurrentPollIndex: setCurrentPollIndex,
-    getCurrentPoll: getCurrentPoll,
+    getPollById: getPollById,
     createPoll: createPoll,
-    returnUserPolls: returnUserPolls
   };
 })
 

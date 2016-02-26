@@ -14,7 +14,7 @@ angular.module('pollster.poll', [])
   $scope.getpoll = function() {
     // for this to work, homeController needs to do this before redirecting: $window.setItem('currentPollId' , // the id user clicked);
     // also, when the homeController first displays the home view, it first must remove the '$window.currentPollId' item
-    $scope.poll = Poll.getCurrentPoll($window.localStorage.getItem('currentPollId'));
+    $scope.poll = Poll.getPollById($window.localStorage.getItem('currentPollId'));
   };
 
   // [input] the choice clicked by user, sent in from the expression in the view
