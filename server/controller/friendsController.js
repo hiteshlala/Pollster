@@ -5,8 +5,8 @@ module.exports = {
   // [output] returns the entry
   // [side effects] adds a friend relationship into Relationships
   post: function(req, res) {
-    var user1 = req.body.userId;
-    var user2 = req.body.friendId;
+    var user1 = Number(req.body.userId);
+    var user2 = Number(req.body.friendId);
     db.models.Relationships.create({
       UserId: user1,
       FriendId: user2
@@ -30,19 +30,27 @@ module.exports = {
       return db.models.UserPoll.bulkCreate(newPairs);
     })
     .then(function (newRels) {
-      return db.models.UserPoll.findAll({
+      var excludePolls = newRels.map (function (pollRel) {
+        return pollRel.PollId;
+      });
+      var test2 =  db.models.UserPoll.findAll({
         where: {
-          UserId: user1
+          UserId: user1,
+          PollId: {$notIn: excludePolls}
         }
       });
+      console.log('from newRels test2', test2);
+      return test2;
     })
     .then(function (otherPollAssociations) {
-      return otherPollAssociations.map(function (newPollAssociation) {
+      var test = otherPollAssociations.map(function (newPollAssociation) {
         return {
           UserId: user2,
           PollId: newPollAssociation.PollId
         };
       });
+      console.log('from otherPollAssociations', test);
+      return test;
     })
     .then(function (otherNewPairs) {
       return db.models.UserPoll.bulkCreate(otherNewPairs);
