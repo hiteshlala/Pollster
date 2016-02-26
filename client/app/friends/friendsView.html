@@ -1,0 +1,11 @@
+<h1>Friends</h1>
+
+<div>
+  <div class='userList' ng-repeat='friend in allFriends.data track by $index'> {{friend.name}} <br> {{friend.email}}</div>
+</div>
+
+<button ng-click= "getUsers()">Show/Hide All Users</button>
+
+<div>
+  <div ng-show='clicked' class='userList' ng-repeat='user in allUsers.data track by $index' ng-click='addFriend(user.id)'>{{user.name}} <br> {{user.email}}</div>
+</div>
