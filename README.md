@@ -102,11 +102,20 @@ Server was implemented using Node and Express. The API is described below:
  Controller: controller.polls.post
 
 1. __/polls__ PUT
+
  Request Body: { userId:number, pollId:number, choice: number }
 
  Increments count for a particular choice of a particular poll in the Poll table.
 
  Controller: controller.polls.put
+
+ 1. __/onePoll/:pollId__ GET
+
+  Request Params: { pollId: number }
+
+  Queries database and returns a poll object containing poll with pollId.
+
+  Controller: controller.polls.getOne
 
 1. __/friends/:userId__ GET
 
