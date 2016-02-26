@@ -1,5 +1,5 @@
 var Sequelize = require('sequelize');
-var db = new Sequelize('latte', 'root', '');
+var db = new Sequelize('latte', 'root', '123');
 
 // Declares the schema for a user
 
