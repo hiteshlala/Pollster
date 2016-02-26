@@ -1,23 +1,24 @@
 <div id='poll'>
-  <h1>POLL VIEW</h1>
+  <h2>Poll View</h2>
   <div ng-app="pollster.poll" ng-controller="PollController">
-    <a href="#/home">Return to All Polls</a>
+    
 
     <div ng-model="poll">
       <div class="pollHeading">{{poll.name}}  Created By: {{poll.creator}}</div>
-        <div>
+        <p>
           <span class="choiceName"> {{poll.choice0}} </span>  <span class="voteCount"> Votes: {{poll.choice0Count}} </span> <button ng-hide="isusercreator()"ng-click="vote(0)">Vote</button>
-        </div>
-        <div>
+        </p>
+        <p>
           <span class="choiceName"> {{poll.choice1}} </span>  <span class="voteCount"> Votes: {{poll.choice1Count}} </span> <button ng-hide="isusercreator()"ng-click="vote(1)">Vote</button>
-        </div>
-        <div>
+        </p>
+        <p>
           <span class="choiceName"> {{poll.choice2}} </span>  <span class="voteCount"> Votes: {{poll.choice2Count}} </span> <button ng-hide="isusercreator()"ng-click="vote(2)">Vote</button>
-        </div>
-        <div>
+        </p>
+        <p>
           <span class="choiceName"> {{poll.choice3}} </span>  <span class="voteCount"> Votes: {{poll.choice3Count}} </span> <button ng-hide="isusercreator()"ng-click="vote(3)">Vote</button>
-        </div>
+        </p>
       </div>
     </div>
+    <p><a href="#/home">Return to Home View</a></p>
   </div>
 </div>
