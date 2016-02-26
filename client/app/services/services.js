@@ -44,9 +44,6 @@ angular.module('pollster.services', [])
 
 .factory('Poll', function($http) {
 
-  // var allUserPolls = [];
-  // var currentPollIndex;
-
   // [input] userId
   // [output]
   // [side effects] add polls to allUserPolls
