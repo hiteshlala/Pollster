@@ -29,6 +29,24 @@ module.exports = {
     .then(function (newPairs) {
       return db.models.UserPoll.bulkCreate(newPairs);
     })
+    .then(function (newRels) {
+      return db.models.UserPoll.findAll({
+        where: {
+          UserId: user1
+        }
+      });
+    })
+    .then(function (otherPollAssociations) {
+      return otherPollAssociations.map(function (newPollAssociation) {
+        return {
+          UserId: user2,
+          PollId: newPollAssociation.PollId
+        };
+      });
+    })
+    .then(function (otherNewPairs) {
+      return db.models.UserPoll.bulkCreate(otherNewPairs);
+    })
     .then(function () {
       res.json(201);
     });
