@@ -3,7 +3,7 @@ angular.module('pollster.poll', [])
 
 .controller('PollController', function ($window, $scope, Poll, Auth) {
   $scope.poll = {};
-  init = function () {
+  var init = function () {
     $scope.getpoll();
   };
 
