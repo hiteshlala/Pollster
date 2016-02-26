@@ -44,25 +44,17 @@ angular.module('pollster.services', [])
 
 .factory('Poll', function($http) {
 
-  var allUserPolls = [];
-  var currentPollIndex;
-
   // [input] userId
-  // [output]
-  // [side effects] add polls to allUserPolls
+  // [output] an array of all polls associated with 'userId'
+  // [side effects] 
   var getPollsFromDb = function(userId) {
     return $http({
       method: 'GET',
       url: '/polls/' + userId
     })
-    .then(function(data) {
-      allUserPolls = data;
-      return;
+    .then(function(res) {
+      return res.data;
     });
-  };
-
-  var returnUserPolls = function() {
-    return allUserPolls;
   };
 
   // [input] pollId, choice( integer 0-3)
@@ -75,26 +67,17 @@ angular.module('pollster.services', [])
       data: {pollId: pollId, choice: choice}
     })
     .then(function (poll) {
-      allUserPolls[currentPollIndex] = poll;
       return poll;
     });
   };
 
-  // [input] indexof array
-  // [output] undefined
-  // [side effects] currentPollIndex gets set
-  var setCurrentPollIndex = function(index) {
-    currentPollIndex = index;
-  };
-
-  // gets called when someone clicks on a poll - might not need it
-  // [input] none
-  // [output] pollObject
+  // [input] pollId
+  // [output] poll object associated with 'pollId'
   // [side effects]
-   var getCurrentPoll = function(id) {
+   var getPollById = function(pollId) {
       return $http({
         method: 'GET',
-        url: '/onePoll/' + id,
+        url: '/onePoll/' + pollId,
       })
       .then(function (poll) {
         return poll;
@@ -103,26 +86,20 @@ angular.module('pollster.services', [])
 
   // [input] recieves object with poll data
   // [output]
-  // [side effects] sends a post request to /polls put
+  // [side effects] creates a poll in the database
   var createPoll = function(pollObject) {
     return $http({
       method: 'POST',
       url: '/polls',
       data: pollObject
-    })
-    .then(function (res) {
-      return;
     });
-
   };
 
   return {
     getPollsFromDb: getPollsFromDb,
     voteOnPoll: voteOnPoll,
-    setCurrentPollIndex: setCurrentPollIndex,
-    getCurrentPoll: getCurrentPoll,
+    getPollById: getPollById,
     createPoll: createPoll,
-    returnUserPolls: returnUserPolls
   };
 })
 
