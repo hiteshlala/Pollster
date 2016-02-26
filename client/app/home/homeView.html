@@ -1,19 +1,24 @@
-<div>
-  <h2>My Dashboard</h2>
+<h1>Home brah</h1>
 
-  <button ng-click='signout()'>Sign out</button>
+<button ng-click='signout()'>Sign out</button>
+<a href="/#/create">
+  <button>Create Poll</button>
+</a>
 
-  <h3>My Polls</h3>
-  <ul>
-    <a ng-repeat="poll in userPolls" 
-      href="/#/polls" 
-      ng-click=setPollId(poll.id)>
-        <li>{{poll.name}}</li>
-    </a>
-  </ul>
+<h2>My Polls</h2>
+<ul>
+  <a ng-repeat="poll in userPolls" 
+    href="/#/polls" 
+    ng-click=setPollId(poll.id)>
+      <li>{{poll.name}}</li>
+  </a>
+</ul>
 
-  <h3>My Friends Polls</h3>
-  <ul>
-    <li ng-repeat="poll in friendPolls">{{poll.name}}</li>
-  </ul>
-</div>
+<h2>Friends Polls</h2>
+<ul>
+  <a ng-repeat="poll in friendPolls"
+    href="/#/polls"
+    ng-click=setPollId(poll.id)>
+      <li>{{poll.name}}</li>
+  </a>
+</ul>
