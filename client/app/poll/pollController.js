@@ -14,7 +14,11 @@ angular.module('pollster.poll', [])
   $scope.getpoll = function() {
     // for this to work, homeController needs to do this before redirecting: $window.setItem('currentPollId' , // the id user clicked);
     // also, when the homeController first displays the home view, it first must remove the '$window.currentPollId' item
-    $scope.poll = Poll.getPollById($window.localStorage.getItem('currentPollId'));
+    Poll.getPollById($window.localStorage.getItem('currentPollId'))
+    .then(function (poll) {
+      $scope.poll = poll;
+      console.log('controller: ',$scope.poll);
+    });
   };
 
   // [input] the choice clicked by user, sent in from the expression in the view
@@ -22,7 +26,7 @@ angular.module('pollster.poll', [])
   // [side effects], sends a put request to increment the vote count on the selected poll,
   // also receives and the newly update poll from the server and resets the $scope.poll to that new version
   $scope.vote = function (choice) {
-   Poll.voteOnPoll($window.currentPoll, choice)
+   Poll.voteOnPoll($window.localStorage.getItem('currentPollId'), choice)
     .then(function(resp) {
       $scope.poll = resp.data;
     });
