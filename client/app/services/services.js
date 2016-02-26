@@ -53,7 +53,15 @@ angular.module('pollster.services', [])
       url: '/polls/' + userId
     })
     .then(function(res) {
-      return res.data;
+      var result = { user: [], friend: [] };
+      res.data.forEach(function (poll) {
+        if (poll.creatorId === Number(userId)) {
+          result.user.push(poll);
+        } else {
+          result.friend.push(poll);
+        }
+      });
+      return result;
     });
   };
 
