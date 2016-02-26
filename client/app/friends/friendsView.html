@@ -1,11 +1,19 @@
-<h1>Friends</h1>
+<div>
+<h2>Friends</h2>
 
 <div>
-  <div class='userList' ng-repeat='friend in allFriends.data track by $index'> {{friend.name}} <br> {{friend.email}}</div>
+  <h3>Current Friends</h3>
+  <p class='userList' ng-repeat='friend in allFriends.data track by $index'> User Name: {{friend.name}} Email: {{friend.email}}</p>
 </div>
 
-<button ng-click= "getUsers()">Show/Hide All Users</button>
 
+<p><button ng-click= "getUsers()">Show/Hide All Users</button></p>
+
+<h3 ng-show='clicked'>All Users</h3>
+<p ng-show='clicked'><em>Click on User to add as friend</em></p>
 <div>
-  <div ng-show='clicked' class='userList' ng-repeat='user in allUsers.data track by $index' ng-click='addFriend(user.id)'>{{user.name}} <br> {{user.email}}</div>
+  <p ng-show='clicked' class='userList' ng-repeat='user in allUsers.data track by $index' ng-click='addFriend(user.id)'> User Name: {{user.name}} Email: {{user.email}}</p>
+</div>
+<p><a href="#/">Return To Home</a></p>
+
 </div>
