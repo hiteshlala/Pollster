@@ -45,8 +45,8 @@ angular.module('pollster.services', [])
 .factory('Poll', function($http) {
 
   // [input] userId
-  // [output]
-  // [side effects] add polls to allUserPolls
+  // [output] an array of all polls associated with 'userId'
+  // [side effects] 
   var getPollsFromDb = function(userId) {
     return $http({
       method: 'GET',
@@ -71,14 +71,13 @@ angular.module('pollster.services', [])
     });
   };
 
-  // gets called when someone clicks on a poll - might not need it
-  // [input] none
-  // [output] pollObject
+  // [input] pollId
+  // [output] poll object associated with 'pollId'
   // [side effects]
-   var getPollById = function(id) {
+   var getPollById = function(pollId) {
       return $http({
         method: 'GET',
-        url: '/onePoll/' + id,
+        url: '/onePoll/' + pollId,
       })
       .then(function (poll) {
         return poll;
@@ -87,7 +86,7 @@ angular.module('pollster.services', [])
 
   // [input] recieves object with poll data
   // [output]
-  // [side effects] sends a post request to /polls put
+  // [side effects] creates a poll in the database
   var createPoll = function(pollObject) {
     return $http({
       method: 'POST',
