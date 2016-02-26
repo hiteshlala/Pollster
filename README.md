@@ -63,6 +63,10 @@ bower install
 
 Server was implemented using Node and Express. The API is described below:
 
+1. __/__ GET
+  
+  Serves static page index.html
+
 1. __/signin__  POST
 
  Request Body: { name: string, password: password }
