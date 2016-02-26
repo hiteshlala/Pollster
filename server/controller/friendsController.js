@@ -5,19 +5,37 @@ module.exports = {
   // [output] returns the entry
   // [side effects] adds a friend relationship into Relationships
   post: function(req, res) {
-    console.log(req.body)
     var user1 = req.body.userId;
     var user2 = req.body.friendId;
     db.models.Relationships.create({
       UserId: user1,
       FriendId: user2
-    }).then(function(data) {
-      res.send(201,data);
+    })
+    .then(function (user) {
+      return db.models.UserPoll.findAll({
+        where: {
+          UserId: user2
+        }
+      });
+    })
+    .then(function (listOfPollAssociationsToAdd) {
+      return listOfPollAssociationsToAdd.map(function (pollAssociation) {
+        return {
+          UserId: user1,
+          PollId: pollAssociation.PollId
+        };
+      });
+    })
+    .then(function (newPairs) {
+      return db.models.UserPoll.bulkCreate(newPairs);
+    })
+    .then(function () {
+      res.json(201);
     });
   },
 
   // [input] recieves a user id on req.params
-  // [output] returns an array of firend objects 
+  // [output] returns an array of firend objects
   // [side effects] none
   get: function(req, res) {
     req.params.userId = Number(req.params.userId);
