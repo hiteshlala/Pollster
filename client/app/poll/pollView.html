@@ -4,26 +4,26 @@
     <a href="#/"><button>See all Polls</button></a>
     <a href="#/create"><button>Create Poll</button></a>
     <a href="#/friends"><button>Add Friends</button></a>
-    <button ng-click='signout()'>Sign out</button>
+    <button ng-click='signout()' class='signOut'>Sign out</button>
   </p>
   
   <div ng-app="pollster.poll" ng-controller="PollController">
     <div ng-model="poll">
       <div class="pollHeading pollTitle">{{poll.name}}  Created By: {{poll.creator}}</div>
-        <ul>
-          <li>
-            <span class="choiceName"> {{poll.choice0}} </span>  <span class="voteCount"> Votes: {{poll.choice0Count}} </span> <button ng-hide="isusercreator()"ng-click="vote(0)">Vote</button>
-          </li>
-          <li>
-            <span class="choiceName"> {{poll.choice1}} </span>  <span class="voteCount"> Votes: {{poll.choice1Count}} </span> <button ng-hide="isusercreator()"ng-click="vote(1)">Vote</button>
-          </li>
-          <li>
-            <span class="choiceName"> {{poll.choice2}} </span>  <span class="voteCount"> Votes: {{poll.choice2Count}} </span> <button ng-hide="isusercreator()"ng-click="vote(2)">Vote</button>
-          </li>
-          <li>
-            <span class="choiceName"> {{poll.choice3}} </span>  <span class="voteCount"> Votes: {{poll.choice3Count}} </span> <button ng-hide="isusercreator()"ng-click="vote(3)">Vote</button>
-          </li>
-        </ul>
+        <table>
+          <tr>
+            <td class="choiceName"> {{poll.choice0}} </td>  <td class="voteCount"> Votes: {{poll.choice0Count}} </td> <td class='voteButton'><button ng-hide="isusercreator()" ng-click="vote(0)">Vote</button></td>
+          </tr>
+          <tr>
+            <td class="choiceName"> {{poll.choice1}} </td>  <td class="voteCount"> Votes: {{poll.choice1Count}} </td> <td class='voteButton'><button ng-hide="isusercreator()" ng-click="vote(1)">Vote</button></td>
+          </tr>
+          <tr>
+            <td class="choiceName"> {{poll.choice2}} </td>  <td class="voteCount"> Votes: {{poll.choice2Count}} </td> <td class='voteButton'><button ng-hide="isusercreator()" ng-click="vote(2)">Vote</button></td>
+          </tr>
+          <tr>
+            <td class="choiceName"> {{poll.choice3}} </td>  <td class="voteCount"> Votes: {{poll.choice3Count}} </td> <td class='voteButton'><button ng-hide="isusercreator()" ng-click="vote(3)">Vote</button></td>
+          </tr>
+        </table>
       </div>
     </div>
 

@@ -119,6 +119,7 @@ b {
     font-weight: bold;
 }
 
+/* add friends view */
 .userList:hover {
     color: #2E64FE;
 }
@@ -140,6 +141,7 @@ li {
     margin-left: 20px;
 }
 
+/* input boxes */
 input {
     height: 22px;
     width: 60%;
@@ -147,6 +149,22 @@ input {
     vertical-align: middle;
     color: #01A9DB;
     background-color: #F7F8E0;
+    border-radius: 5px;
+}
+
+/* vote view */
+tr {
+    line-height: 50px;
+}
+
+.choiceName {
+    max-width: 60%;
+}
+.voteCount {
+    width: 10%;
+}
+.voteButton {
+    width: 30%;
 }
 
 
