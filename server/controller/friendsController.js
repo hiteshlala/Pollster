@@ -12,20 +12,24 @@ module.exports = {
       UserId: user1,
       FriendId: user2
     })
-    // after creating the friend relationship, find all polls associated with user 2
+    // after creating the friend relationship, find all polls CREATED BY user 2
     .then(function (user) {
-      return db.models.UserPoll.findAll({
+      var polls = db.models.Poll.findAll({
         where: {
-          UserId: user2
+          creatorId: user2
         }
       });
+      // then, with all those polls, create an array of all the poll ids
+      return polls.map(function (poll) {
+        return poll.id;
+      });
     })
-    // taking all polls associated with user 2, create an array of objects that have user1's id and the given poll id
-    .then(function (listOfPollAssociationsToAdd) {
-      return listOfPollAssociationsToAdd.map(function (pollAssociation) {
+    // with all pollIds created by user 2, make an array of objects that have user1's id and the given poll id
+    .then(function (listOfPollIds) {
+      return listOfPollIds.map(function (pollId) {
         return {
           UserId: user1,
-          PollId: pollAssociation.PollId
+          PollId: pollId
         };
       });
     })
@@ -33,34 +37,30 @@ module.exports = {
     .then(function (newPairs) {
       return db.models.UserPoll.bulkCreate(newPairs);
     })
-    // after creating relationships between user1 and user2's polls, do the opposite:
+    // after creating relationships between user1 and user2's polls, find all polls created by user 1
     .then(function (newRels) {
-      // find all pollIds already associated with user 2
-      var excludePolls = newRels.map (function (pollRel) {
-        return pollRel.PollId;
-      });
-      // find all polls associated with user 1 THAT HAVEN'T already been associated with user 2
-      var pollsOfUser1 =  db.models.UserPoll.findAll({
+      var polls = db.models.Poll.findAll({
         where: {
-          UserId: user1,
-          PollId: {$notIn: excludePolls}
+          creatorId: user1
         }
       });
-      return pollsOfUser1;
+      // then, with all those polls, create an array of all the poll ids
+      return polls.map(function (poll) {
+        return poll.id;
+      });
     })
-    // then, take the new poll associations, and create new UserPoll objects for each
-    .then(function (otherPollAssociations) {
-      var newUser2Pairs = otherPollAssociations.map(function (newPollAssociation) {
+    // then, given all pollIds created by user1, create an array of objects with userid as 2, and the given pollid
+    .then(function (listOfPollIds) {
+      return listOfPollIds.map(function (pollId) {
         return {
           UserId: user2,
-          PollId: newPollAssociation.PollId
+          PollId: pollId
         };
       });
-      return newUser2Pairs;
     })
-    // Then bulk create the new user 2 associations with any remaining user 1 polls
-    .then(function (newUser2Pairs) {
-      return db.models.UserPoll.bulkCreate(newUser2Pairs);
+    // taken that list of user Poll associations between user1 and all of user2's polls, create them in the UserPoll join table
+    .then(function (newOppPairs) {
+      return db.models.UserPoll.bulkCreate(newOppPairs);
     })
     .then(function () {
       res.json(201);
