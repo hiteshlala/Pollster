@@ -10,7 +10,7 @@ var app = express();
 module.exports.app = app;
 
 app.set('port', process.env.PORT || 8080);
-app.set('view engine', 'jade');
+app.set('view engine', 'angular');
 
 app.use(session({secret: 'latte'}));
 app.use(parser.json());
