@@ -13,16 +13,16 @@
         <table>
           <tr><th class="choiceName">Answer Choice</th><th class="choiceName">Votes</th><th class='voteButton'>Vote</th></tr>
           <tr>
-            <td class="choiceName"> {{poll.choice0}} </td>  <td class="choiceName"> Votes: {{poll.choice0Count}} </td> <td class='voteButton'><button ng-hide="isusercreator()" ng-click="vote(0)">Vote</button></td>
+            <td class="choiceName"> {{poll.choice0}} </td>  <td class="choiceName"> {{poll.choice0Count}} </td> <td class='voteButton'><button ng-hide="isusercreator()" ng-click="vote(0)">Vote</button></td>
           </tr>
           <tr>
-            <td class="choiceName"> {{poll.choice1}} </td>  <td class="voteCount"> Votes: {{poll.choice1Count}} </td> <td class='voteButton'><button ng-hide="isusercreator()" ng-click="vote(1)">Vote</button></td>
+            <td class="choiceName"> {{poll.choice1}} </td>  <td class="voteCount"> {{poll.choice1Count}} </td> <td class='voteButton'><button ng-hide="isusercreator()" ng-click="vote(1)">Vote</button></td>
           </tr>
           <tr>
-            <td class="choiceName"> {{poll.choice2}} </td>  <td class="voteCount"> Votes: {{poll.choice2Count}} </td> <td class='voteButton'><button ng-hide="isusercreator()" ng-click="vote(2)">Vote</button></td>
+            <td class="choiceName"> {{poll.choice2}} </td>  <td class="voteCount"> {{poll.choice2Count}} </td> <td class='voteButton'><button ng-hide="isusercreator()" ng-click="vote(2)">Vote</button></td>
           </tr>
           <tr>
-            <td class="choiceName"> {{poll.choice3}} </td>  <td class="voteCount"> Votes: {{poll.choice3Count}} </td> <td class='voteButton'><button ng-hide="isusercreator()" ng-click="vote(3)">Vote</button></td>
+            <td class="choiceName"> {{poll.choice3}} </td>  <td class="voteCount"> {{poll.choice3Count}} </td> <td class='voteButton'><button ng-hide="isusercreator()" ng-click="vote(3)">Vote</button></td>
           </tr>
         </table>
       </div>
@@ -30,4 +30,3 @@
 
   </div>
 </div>
-<link rel="stylesheet" type="text/css" href="style.css" />
