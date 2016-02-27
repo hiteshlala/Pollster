@@ -81,11 +81,11 @@ header p {
 /* friendsView */
 .friends {
     float: left;
-    width: 50%;
-    padding-left: 15px;
+    width: 45%;
+    /*padding-left: 15px;*/
 }
 .users {
-    width: 50%;
+    width: 45%;
     float: right;
 }
 
