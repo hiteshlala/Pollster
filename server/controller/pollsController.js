@@ -6,7 +6,7 @@ var CHOICE_KEYS = [
 'choice1Count',
 'choice2Count',
 'choice3Count'
-]
+];
 
 module.exports = {
   // [input] expects req.body to be an object with properties:
