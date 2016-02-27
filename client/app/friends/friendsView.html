@@ -16,9 +16,9 @@
 <div ng-show='clicked' class="bar">
   <input type="text" class="search" ng-model="searchString" placeholder="Search Users">
 </div>
+
 <div>
   <p ng-show='clicked' class='userList' ng-repeat='user in allUsers.data | filter : searchString track by $index' ng-click='addFriend(user.id)'> User Name: {{user.name}} Email: {{user.email}}</p>
 </div>
 <p><a href="#/">Return To Home</a></p>
-
 </div>
