@@ -107,11 +107,19 @@ Server was implemented using Node and Express. The API is described below:
 
 1. __/polls__ PUT
 
- Request Body: { userId:number, pollId:number, choice: number }
+ Request Body: { userId: number, pollId: number, choice: number }
 
  Increments count for a particular choice of a particular poll in the Poll table.
 
  Controller: controller.polls.put
+
+ 1. __/polls/:pollId__ DELETE
+
+ Request Params: { pollId: number }
+
+ Deletes entry in Poll table with pollId and deletes all occurrances of pollId in UserPoll table.
+
+ Controller: controller.polls.delete
 
  1. __/onePoll/:pollId__ GET
 
