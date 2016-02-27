@@ -12,7 +12,7 @@
 <div class='friends'>
   <h3>Current Friends</h3>
   <ul>
-    <li class='friendList' ng-repeat='friend in allFriends.data track by $index'> <b>{{friend.name}}</b> Email: {{friend.email}}</li>
+    <li class='friendList' ng-repeat='friend in allFriends.data track by $index'> <b>{{friend.name}}</b> - {{friend.email}}</li>
   </ul>
 </div>
 
@@ -24,7 +24,7 @@
     <input type="text" class="search" ng-model="searchString" placeholder="Search Users">
   </div>
   <ul>
-    <li ng-show='clicked' class='userList' ng-repeat='user in allUsers.data | filter : searchString track by $index' ng-click='addFriend(user.id)'> <b>{{user.name}}</b> Email: {{user.email}}</li>
+    <li ng-show='clicked' class='userList' ng-repeat='user in allUsers.data | filter : searchString track by $index' ng-click='addFriend(user.id)'> <b>{{user.name}}</b> - {{user.email}}</li>
   </ul>
 </div>
 
