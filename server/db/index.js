@@ -6,8 +6,8 @@ var Sequelize = require('sequelize');
 var seq = new Sequelize(process.env.HEROKU_POSTGRESQL_BRONZE_URL, {
   dialect: 'postgres',
   protocol: 'postgres',
-  port: match[4],
-  host: match[3],
+  port: 5432,
+  host: 'ec2-107-20-148-211.compute-1.amazonaws.com',
   logging: true
 });
 
