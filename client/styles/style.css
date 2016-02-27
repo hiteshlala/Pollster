@@ -112,9 +112,9 @@ header p {
 }
 
 
-.twitts {
+.friends {
     float: left;
-    width: 75%;
+    width: 50%;
 }
 .twitts ul {
     border: 1px solid grey;
@@ -131,8 +131,8 @@ header p {
     overflow: auto; /*debug*/
 }
 
-.left-side {
-    width: 20%;
+.users {
+    width: 50%;
     float: left;
 }
 
