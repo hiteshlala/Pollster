@@ -120,17 +120,19 @@ h3 {
 }
 
 
-/*
-.twitts ul {
-    border: 1px solid grey;
-    border-radius: 5px;
-    background: #ccffcc;
+
+ul {
+    /*border: 1px solid grey;*/
+    /*border-radius: 5px;*/
+    /*background: #ccffcc;*/
     padding: 5px;
     margin: 8px;
 }
-.twitts li {
+li {
     list-style: none;
 }
+
+/*
 .twitts-go-here {
     height: 480px; 
     overflow: auto;
