@@ -143,8 +143,10 @@ li {
 input {
     height: 22px;
     width: 60%;
-    font-size: 19px;
+    font-size: 18px;
     vertical-align: middle;
+    color: #01A9DB;
+    background-color: #F7F8E0;
 }
 
 
