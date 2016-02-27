@@ -153,8 +153,9 @@ input {
 }
 
 /* vote view */
-tr {
+tr, th {
     line-height: 50px;
+    text-align: center;
 }
 
 .choiceName {
