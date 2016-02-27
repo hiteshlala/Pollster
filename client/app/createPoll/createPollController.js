@@ -1,6 +1,10 @@
 angular.module('pollster.createPoll', [])
 
-.controller('CreatePollController', function($scope, Poll, $location, $window) {
+.controller('CreatePollController', function($scope, Poll, $location, $window, Auth) {
+
+  $scope.signout = function () {
+    Auth.signout();
+  };
 
   $scope.createPoll = function() {
     var pollObject = {

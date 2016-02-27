@@ -2,6 +2,11 @@
 angular.module('pollster.poll', [])
 
 .controller('PollController', function ($window, $scope, Poll, Auth) {
+
+  $scope.signout = function () {
+    Auth.signout();
+  };
+  
   $scope.poll = {};
   var init = function () {
     $scope.getpoll();
