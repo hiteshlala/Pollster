@@ -1,25 +1,31 @@
 <div>
 <h2>Friends</h2>
-<a href="/#/"><button>See all Polls</button></a>
-<a href="/#/create"><button>Create Poll</button></a>
-<button ng-click='signout()'>Sign out</button>
+<div>
+  <p>
+    <a href="/#/"><button>See all Polls</button></a>
+    <a href="/#/create"><button>Create Poll</button></a>
+    <!-- <button ng-click= "getUsers()">Show/Hide All Users</button> -->
+    <a href="#/"><button>Return To Home</button></a>
+    <button ng-click='signout()'>Sign out</button>
+  </p>
+</div>
+
 <div class='friends'>
   <h3>Current Friends</h3>
   <p class='userList' ng-repeat='friend in allFriends.data track by $index'> Friend Name: {{friend.name}} Email: {{friend.email}}</p>
 </div>
 
 <div class='users'>
-<p><button ng-click= "getUsers()">Show/Hide All Users</button></p>
-
-<h3 ng-show='clicked'>All Users</h3>
-<p ng-show='clicked'><em>Click on User to add as friend</em></p>
-<div ng-show='clicked' class="bar">
-  <input type="text" class="search" ng-model="searchString" placeholder="Search Users">
+  <!-- <p><button ng-click= "getUsers()">Show/Hide All Users</button></p> -->
+  <h3 ng-show='clicked'>All Users</h3><button ng-click= "getUsers()">Show/Hide All Users</button> 
+  <p ng-show='clicked'><em>Click on User to add as friend</em></p>
+  <div ng-show='clicked' class="bar">
+    <input type="text" class="search" ng-model="searchString" placeholder="Search Users">
+  </div>
+  <div>
+    <p ng-show='clicked' class='userList' ng-repeat='user in allUsers.data | filter : searchString track by $index' ng-click='addFriend(user.id)'> User Name: {{user.name}} Email: {{user.email}}</p>
+  </div>
 </div>
 
-<div>
-  <p ng-show='clicked' class='userList' ng-repeat='user in allUsers.data | filter : searchString track by $index' ng-click='addFriend(user.id)'> User Name: {{user.name}} Email: {{user.email}}</p>
 </div>
-</div>
-<p><a href="#/"><button>Return To Home</button></a></p>
-</div>
+<!-- <link rel="stylesheet" type="text/css" href="style.css" /> -->

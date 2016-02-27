@@ -1,36 +1,3 @@
-/*ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-}
-
-li {
-    float: right;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}*/
-
-/* Change the link color to #111 (black) on hover 
-li a:hover {
-    background-color: #111;
-}*/
-
-/*header {
-    background-color: #F6E3CE
-}
-.app {
-    background-color: #E3F6CE
-}*/
-
-
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -80,7 +47,6 @@ table {
     border-spacing: 0;
 }
 
-
 /*
     Pollster Specific Styles
  */
@@ -98,6 +64,7 @@ header {
     overflow: scroll;
 
 }
+
 header h1 {
     font-size: 40px;
     font-weight: 800;
@@ -111,11 +78,42 @@ header p {
     line-height: 25px;
 }
 
-
+/* friendsView */
 .friends {
     float: left;
     width: 50%;
 }
+.users {
+    width: 50%;
+    float: left;
+}
+
+/* Highlights the element used for button like element */
+button {
+    font-weight: 400;
+    background: #CED8F6;
+    color: #01A9DB;
+    margin: 3 10 3 10;
+    padding: 3 9 3 9;
+}
+button:hover { 
+    background-color: #F6CED8; /*#AEB404;/*#A9F5E1;#D0A9F5;*/
+}
+
+h2 {
+    font-size: 36px;
+    padding: 15 30 15 30;
+}
+
+h3 {
+    font-size: 28px;
+    padding: 15 30 15 30;
+}
+
+
+
+
+
 .twitts ul {
     border: 1px solid grey;
     border-radius: 5px;
@@ -131,10 +129,7 @@ header p {
     overflow: auto; /*debug*/
 }
 
-.users {
-    width: 50%;
-    float: left;
-}
+
 
 .view-twitts {
     text-align: center;
@@ -147,14 +142,7 @@ header p {
 }
 
 
-/* Highlights the element used for button like element */
-button {
-    font-weight: 800;
-    background: #CED8F6;
-}
-button:hover { 
-    background-color: #D0A9F5;
-}
+
 /* for the input box */
 .twitt-input {
     font: inherit;
