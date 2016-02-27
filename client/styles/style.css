@@ -175,3 +175,11 @@ tr, th {
 .viewContainer {
     padding: 5px;
 }
+
+/* signin signup views */
+.criteria {
+    max-width: 30%;
+}
+.input {
+    max-width: 30%;
+}
