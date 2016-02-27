@@ -1,5 +1,15 @@
 var Sequelize = require('sequelize');
-var db = new Sequelize('latte', 'root', '123');
+
+// var db = new Sequelize('latte', 'root', '123');
+
+
+var seq = new Sequelize(process.env.HEROKU_POSTGRESQL_BRONZE_URL, {
+  dialect: 'postgres',
+  protocol: 'postgres',
+  port: match[4],
+  host: match[3],
+  logging: true
+});
 
 // Declares the schema for a user
 
@@ -37,6 +47,13 @@ Poll.belongsToMany(User, {through: 'UserPoll'});
 // Declares the join table that creates friendships between two users
 User.belongsToMany(User, {as: 'Friend', through: 'Relationships' });
 
-db.sync();
+// db.sync();
 
-module.exports = db;
+// module.exports = db;
+
+module.exports = {
+  Sequelize: Sequelize,
+  sequelize: seq,
+  User: User,
+  Poll: Poll
+};
