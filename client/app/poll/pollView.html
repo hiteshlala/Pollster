@@ -18,10 +18,10 @@
         <tr>
           <td class="choiceName"> {{poll.choice1}} </td>  <td class="voteCount"> {{poll.choice1Count}} </td> <td class='voteButton'><button ng-hide="isusercreator()" ng-click="vote(1)">Vote</button></td>
         </tr>
-        <tr ng-if="poll.choice2 !== NULL" >
+        <tr ng-if="poll.choice2 !== 'NULL'" >
           <td class="choiceName"> {{poll.choice2}} </td>  <td class="voteCount"> {{poll.choice2Count}} </td> <td class='voteButton'><button ng-hide="isusercreator()" ng-click="vote(2)">Vote</button></td>
         </tr>
-        <tr ng-if="poll.choice2 !== NULL">
+        <tr ng-if="poll.choice2 !== 'NULL'">
           <td class="choiceName"> {{poll.choice3}} </td>  <td class="voteCount"> {{poll.choice3Count}} </td> <td class='voteButton'><button ng-hide="isusercreator()" ng-click="vote(3)">Vote</button></td>
         </tr>
       </table>
