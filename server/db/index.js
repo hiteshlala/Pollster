@@ -7,8 +7,7 @@ var db = new Sequelize('postgres://dvxetgekpdlqos:wwqFsT4QKy0YkrniumiXwyhvk4@ec2
   dialect: 'postgres',
   protocol: 'postgres',
   port: 5432,
-  host: 'ec2-107-20-148-211.compute-1.amazonaws.com',
-  logging: true
+  host: 'ec2-107-20-148-211.compute-1.amazonaws.com'
 });
 
 // Declares the schema for a user
