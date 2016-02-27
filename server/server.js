@@ -3,7 +3,7 @@ var db = require('./db');
 var session = require('express-session');
 var parser = require('body-parser');
 var http = require('http');
-var angular = require('angular');
+// var angular = require('angular');
 var router = require('./routes.js');
 
 var app = express();
