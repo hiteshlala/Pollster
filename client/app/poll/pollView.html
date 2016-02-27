@@ -11,7 +11,7 @@
     <div ng-model="poll">
       <div class="pollHeading pollTitle">{{poll.name}}  Created By: {{poll.creator}}</div>
       <table>
-        <tr><th class="choiceName">Answer Choice</th><th class="choiceName">Votes</th><th class='voteButton'>Vote</th></tr>
+        <tr><th class="choiceName">Answer Choice</th><th class="choiceName">Votes</th><th class='voteButton' ng-hide="isusercreator()">Vote</th></tr>
         <tr>
           <td class="choiceName"> {{poll.choice0}} </td>  <td class="choiceName"> {{poll.choice0Count}} </td> <td class='voteButton'><button ng-hide="isusercreator()" ng-click="vote(0)">Vote</button></td>
         </tr>
