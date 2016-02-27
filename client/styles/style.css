@@ -82,6 +82,7 @@ header p {
 .friends {
     float: left;
     width: 50%;
+    padding-left: 15px;
 }
 .users {
     width: 50%;
@@ -95,6 +96,8 @@ button {
     color: #01A9DB;
     margin: 3 10 3 10;
     padding: 3 9 3 9;
+    line-height: 21px;
+    font-size: 19px;
 }
 button:hover { 
     background-color: #F6CED8;
@@ -117,7 +120,7 @@ h3 {
 }
 
 
-
+/*
 .twitts ul {
     border: 1px solid grey;
     border-radius: 5px;
@@ -129,8 +132,8 @@ h3 {
     list-style: none;
 }
 .twitts-go-here {
-    height: 480px; /*debug*/
-    overflow: auto; /*debug*/
+    height: 480px; 
+    overflow: auto;
 }
 
 
@@ -145,9 +148,6 @@ h3 {
     margin: 8px;
 }
 
-
-
-/* for the input box */
 .twitt-input {
     font: inherit;
     overflow-y: hidden;
@@ -175,3 +175,4 @@ h3 {
     font-weight: 800;
     background: #fc9;
 }
+*/
