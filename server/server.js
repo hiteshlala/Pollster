@@ -14,9 +14,10 @@ app.set('view engine', 'html');
 
 app.use(session({secret: 'latte'}));
 app.use(parser.json());
-console.log("dir name", __dirname, __dirname + '/../client');
-app.use(express.static(__dirname + '/../client'));
-// app.use(express.static('/app/'));
+// console.log("dir name", __dirname, __dirname + '/../client');
+// app.use(express.static(__dirname + '/../client'));
+app.use(express.static('/app/client'));
+app.use(express.static('/app/lib'));
 app.use('/', router);
 
 db.sequelize.sync().then(function() {
