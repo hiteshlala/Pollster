@@ -1,13 +1,13 @@
 <h2>Pollster Home View</h2>
 <p>
-  <a href="/#/create"><button>Create Poll</button></a>
-  <a href="/#/friends"><button>Add Friends</button></a>
+  <a href="#/create"><button>Create Poll</button></a>
+  <a href="#/friends"><button>Add Friends</button></a>
   <button ng-click='signout()'>Sign out</button>
 </p>
 <h3>My Polls</h3>
 <ul>
   <a ng-repeat="poll in userPolls"
-    href="/#/polls"
+    href="#/polls"
     ng-click=setPollId(poll.id)>
       <li>{{poll.name}}</li>
   </a>
@@ -16,7 +16,7 @@
 <h3>Friends Polls</h3>
 <ul>
   <a ng-repeat="poll in friendPolls"
-    href="/#/polls"
+    href="#/polls"
     ng-click=setPollId(poll.id)>
       <li>{{poll.name}}</li>
   </a>
