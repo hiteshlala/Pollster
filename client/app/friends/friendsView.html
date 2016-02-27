@@ -11,7 +11,9 @@
 
 <div class='friends'>
   <h3>Current Friends</h3>
-  <li class='friendList' ng-repeat='friend in allFriends.data track by $index'> <b>{{friend.name}}</b> Email: {{friend.email}}</li>
+  <ul>
+    <li class='friendList' ng-repeat='friend in allFriends.data track by $index'> <b>{{friend.name}}</b> Email: {{friend.email}}</li>
+  </ul>
 </div>
 
 <div class='users'>
