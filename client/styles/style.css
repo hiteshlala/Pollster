@@ -168,4 +168,7 @@ tr, th {
     width: 30%;
 }
 
+.signOut:hover {
+    background-color: #FA5882;
+}
 
