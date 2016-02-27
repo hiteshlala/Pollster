@@ -1,5 +1,14 @@
 var Sequelize = require('sequelize');
-var db = new Sequelize('latte', 'root', '123');
+
+// var db = new Sequelize('latte', 'root', '123');
+
+
+var db = new Sequelize('postgres://dvxetgekpdlqos:wwqFsT4QKy0YkrniumiXwyhvk4@ec2-107-20-148-211.compute-1.amazonaws.com:5432/dd6d1aqr5qsdh1', {
+  dialect: 'postgres',
+  protocol: 'postgres',
+  port: 5432,
+  host: 'ec2-107-20-148-211.compute-1.amazonaws.com'
+});
 
 // Declares the schema for a user
 
@@ -37,6 +46,13 @@ Poll.belongsToMany(User, {through: 'UserPoll'});
 // Declares the join table that creates friendships between two users
 User.belongsToMany(User, {as: 'Friend', through: 'Relationships' });
 
-db.sync();
+// db.sync();
 
-module.exports = db;
+// module.exports = db;
+
+module.exports = {
+  Sequelize: Sequelize,
+  sequelize: db,
+  User: User,
+  Poll: Poll
+};
