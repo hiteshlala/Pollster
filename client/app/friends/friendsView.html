@@ -4,7 +4,6 @@
   <p>
     <a href="/#/"><button>See all Polls</button></a>
     <a href="/#/create"><button>Create Poll</button></a>
-    <!-- <button ng-click= "getUsers()">Show/Hide All Users</button> -->
     <a href="#/"><button>Return To Home</button></a>
     <button ng-click='signout()'>Sign out</button>
   </p>
@@ -16,8 +15,8 @@
 </div>
 
 <div class='users'>
-  <!-- <p><button ng-click= "getUsers()">Show/Hide All Users</button></p> -->
-  <h3 ng-show='clicked'>All Users</h3><button ng-click= "getUsers()">Show/Hide All Users</button> 
+  <p><button ng-click= "getUsers()">Show/Hide All Users</button></p>
+  <h3 ng-show='clicked'>All Users</h3> 
   <p ng-show='clicked'><em>Click on User to add as friend</em></p>
   <div ng-show='clicked' class="bar">
     <input type="text" class="search" ng-model="searchString" placeholder="Search Users">

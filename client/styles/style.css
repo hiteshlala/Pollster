@@ -97,7 +97,7 @@ button {
     padding: 3 9 3 9;
 }
 button:hover { 
-    background-color: #F6CED8; /*#AEB404;/*#A9F5E1;#D0A9F5;*/
+    background-color: #F6CED8;
 }
 
 h2 {
@@ -112,7 +112,9 @@ h3 {
     line-height: 36px;
 }
 
-
+.userList:hover {
+    color: #2E64FE;
+}
 
 
 
