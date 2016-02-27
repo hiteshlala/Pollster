@@ -3,7 +3,7 @@ var Sequelize = require('sequelize');
 // var db = new Sequelize('latte', 'root', '123');
 
 
-var seq = new Sequelize(process.env.HEROKU_POSTGRESQL_BRONZE_URL, {
+var seq = new Sequelize('postgres://dvxetgekpdlqos:wwqFsT4QKy0YkrniumiXwyhvk4@ec2-107-20-148-211.compute-1.amazonaws.com:5432/dd6d1aqr5qsdh1', {
   dialect: 'postgres',
   protocol: 'postgres',
   port: 5432,
