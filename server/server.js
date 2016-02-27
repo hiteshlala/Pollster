@@ -3,7 +3,7 @@ var db = require('./db');
 var session = require('express-session');
 var parser = require('body-parser');
 var http = require('http');
-
+var angular = require('angular');
 var router = require('./routes.js');
 
 var app = express();
@@ -15,8 +15,8 @@ app.set('view engine', 'angular');
 app.use(session({secret: 'latte'}));
 app.use(parser.json());
 console.log("dir name", __dirname, __dirname + '/../client');
-// app.use(express.static(__dirname + '/../client'));
-app.use(express.static('/app/'));
+app.use(express.static(__dirname + '/../client'));
+// app.use(express.static('/app/'));
 app.use('/', router);
 
 db.sequelize.sync().then(function() {
