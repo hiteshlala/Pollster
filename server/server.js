@@ -13,6 +13,7 @@ app.set('port', process.env.PORT || 8080);
 
 app.use(session({secret: 'latte'}));
 app.use(parser.json());
+console.log("dir name", __dirname, __dirname + '/../client');
 app.use(express.static(__dirname + '/../client'));
 app.use('/', router);
 
