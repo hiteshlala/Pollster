@@ -94,8 +94,8 @@ button {
     font-weight: 400;
     background: #CED8F6;
     color: #01A9DB;
-    margin: 3 10 3 10;
-    padding: 3 9 3 9;
+    /*margin: 3 10 3 10;*/
+    padding: 3 10 3 10;    /*3 9 3 9;*/
     line-height: 21px;
     font-size: 19px;
 }
