@@ -123,8 +123,7 @@ b {
     color: #2E64FE;
 }
 
-
-
+/* lists */
 ul {
     padding: 5px;
     margin: 8px;
@@ -139,7 +138,8 @@ li {
 input {
     height: 22px;
     width: 60%;
-
+    font-size: 19px;
+    vertical-align: middle;
 }
 
 
