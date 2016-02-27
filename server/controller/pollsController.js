@@ -1,5 +1,4 @@
 var db = require('../db').sequelize;
-// var db = db1.sequelize;
 
 var CHOICE_KEYS = [
 'choice0Count',

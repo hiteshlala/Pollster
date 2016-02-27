@@ -1,5 +1,4 @@
 var db = require('../db').sequelize;
-// var db = db1.sequelize;
 
 module.exports = {
   // [input] recieves userId and friendId on req.body
