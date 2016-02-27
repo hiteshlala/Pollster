@@ -123,6 +123,11 @@ b {
     color: #2E64FE;
 }
 
+.pollTitle {
+    padding: 5px;
+    margin: 5px;
+}
+
 /* lists */
 ul {
     padding: 5px;
