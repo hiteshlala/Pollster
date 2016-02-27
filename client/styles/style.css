@@ -86,7 +86,7 @@ header p {
 }
 .users {
     width: 50%;
-    float: left;
+    float: right;
 }
 
 /* Highlights the element used for button like element */
