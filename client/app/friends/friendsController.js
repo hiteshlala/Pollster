@@ -1,7 +1,12 @@
 // friends controller
 angular.module('pollster.friend', [])
 
-.controller('FriendsController', function ($scope, $window, Friend) {
+.controller('FriendsController', function ($scope, $window, Friend, Auth) {
+
+  $scope.signout = function () {
+    Auth.signout();
+  };
+  
   //var to hold the current users id from the the localStorage
   var userId = $window.localStorage.getItem('com.id');
 
