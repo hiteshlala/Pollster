@@ -1,21 +1,21 @@
 {
-  "name": "group-event-file",
+  "name": "pollster",
   "version": "1.0.0",
-  "description": "event scheduler",
+  "description": "see what my friends think",
   "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tepidLatte/tepidLatte.git"
+    "url": "git+https://github.com/TepidLatteGreenfield/tepidLatte2.git"
   },
   "author": "Brian Ronaghan, Micheal Cheung, Oliver Huang, Hitesh Lala",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/tepidLatte/tepidLatte/issues"
+    "url": "https://github.com/TepidLatteGreenfield/tepidLatte2/issues"
   },
-  "homepage": "https://github.com/tepidLatte/tepidLatte#readme",
+  "homepage": "https://github.com/TepidLatteGreenfield/tepidLatte2#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.0",
