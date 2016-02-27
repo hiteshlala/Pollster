@@ -172,3 +172,6 @@ tr, th {
     background-color: #FA5882;
 }
 
+.viewContainer {
+    padding: 5px;
+}

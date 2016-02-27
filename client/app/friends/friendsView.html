@@ -1,30 +1,30 @@
-<div>
-<h2>Add Friends</h2>
-<div>
-  <p>
-    <a href="#/"><button>See all Polls</button></a>
-    <a href="#/create"><button>Create Poll</button></a>
-    <a href="#/"><button>Return To Home</button></a>
-    <button ng-click='signout()' class='signOut'>Sign out</button>
-  </p>
-</div>
-
-<div class='friends'>
-  <h3>Current Friends</h3>
-  <ul>
-    <li class='friendList' ng-repeat='friend in allFriends.data track by $index'> <b>{{friend.name}}</b> - {{friend.email}}</li>
-  </ul>
-</div>
-
-<div class='users'>
-  <p><button ng-click= "getUsers()">Show/Hide All Users</button></p>
-  <h3 ng-show='clicked'>All Users</h3> 
-  <p ng-show='clicked'><em>Click on User to add as friend</em></p>
-  <div ng-show='clicked' class="bar">
-    <input type="text" class="search" ng-model="searchString" placeholder="Search Users">
+<div class='viewContainer'>
+  <h2>Add Friends</h2>
+  <div>
+    <p>
+      <a href="#/"><button>See all Polls</button></a>
+      <a href="#/create"><button>Create Poll</button></a>
+      <a href="#/"><button>Return To Home</button></a>
+      <button ng-click='signout()' class='signOut'>Sign out</button>
+    </p>
   </div>
-  <ul>
-    <li ng-show='clicked' class='userList' ng-repeat='user in allUsers.data | filter : searchString track by $index' ng-click='addFriend(user.id)'> <b>{{user.name}}</b> - {{user.email}}</li>
-  </ul>
-</div>
 
+  <div class='friends'>
+    <h3>Current Friends</h3>
+    <ul>
+      <li class='friendList' ng-repeat='friend in allFriends.data track by $index'> <b>{{friend.name}}</b> - {{friend.email}}</li>
+    </ul>
+  </div>
+
+  <div class='users'>
+    <p><button ng-click= "getUsers()">Show/Hide All Users</button></p>
+    <h3 ng-show='clicked'>All Users</h3> 
+    <p ng-show='clicked'><em>Click on User to add as friend</em></p>
+    <div ng-show='clicked' class="bar">
+      <input type="text" class="search" ng-model="searchString" placeholder="Search Users">
+    </div>
+    <ul>
+      <li ng-show='clicked' class='userList' ng-repeat='user in allUsers.data | filter : searchString track by $index' ng-click='addFriend(user.id)'> <b>{{user.name}}</b> - {{user.email}}</li>
+    </ul>
+  </div>
+</div>
