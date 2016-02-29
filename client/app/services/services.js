@@ -55,6 +55,7 @@ angular.module('pollster.services', [])
     .then(function(res) {
       var result = { user: [], friend: [] };
       res.data.forEach(function (poll) {
+        console.log('from getPollsFromDb each poll:',poll);
         if (poll.creatorId === Number(userId)) {
           result.user.push(poll);
         } else {
