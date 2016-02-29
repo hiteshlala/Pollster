@@ -40,7 +40,7 @@ angular.module('pollster.poll', [])
   // [output] boolean representing whether the current user is the poll creator
   // this will allow us to only display vote buttons if the user is NOT the creator
   $scope.isusercreator = function () {
-    return $window.localStorage.getItem('com.id') === $scope.poll.creatorId;
+    return Number($window.localStorage.getItem('com.id')) === Number($scope.poll.creatorId);
   };
 
   init();

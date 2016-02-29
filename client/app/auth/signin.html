@@ -1,9 +1,11 @@
-<div id='signin'>
+<div id='signin' class='viewContainer'>
   <h2>Signin</h2>
   <form name="signinForm" ng-submit='signin()'>
-    <p>User Name: <input type='text'ng-model='user.name'></p>
-    <p>User Password: <input type="password" ng-model='user.password'></p>
+    <table>
+      <tr><td class='criteria'>User Name:</td><td class='input'> <input type='text'ng-model='user.name'></td></tr>
+      <tr><td>User Password:</td><td> <input type="password" ng-model='user.password'></td></tr>
+    </table>
     <button>Signin</button>
   </form>
-  <p><a href="#/signup">Don't have an account? <strong>Signup</strong> ...</a></p>
+  <p>Don't have an account? <a href="#/signup"> <button>Signup...</button> </a></p>
 </div>

@@ -1,7 +1,6 @@
 var bcrypt = require('bcrypt-nodejs');
 
-var db1 = require('../db');
-var db = db1.sequelize;
+var db = require('../db').sequelize;
 var session = require('express-session');
 var Promise = require('bluebird');
 var jwt = require('jwt-simple');
