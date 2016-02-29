@@ -17,6 +17,8 @@ router.post('/polls', controller.polls.post);
 
 router.put('/polls', controller.polls.put);
 
+router.delete('/polls/:pollId', controller.polls.delete);
+
 router.get('/onePoll/:pollId', controller.polls.getOne);
 
 

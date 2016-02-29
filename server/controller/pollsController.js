@@ -68,13 +68,10 @@ module.exports = {
     });
   },
 
-  // FIXME: change put request
-
   // [input] expects req.body to have properties 'userId', 'pollId', 'choice'
   // [output] on success, returns status code 201
   // [side effects] increments count for given choice on given poll
   put: function (req, res) {
-    console.log(req.body);
     if (req.body.choice < 0 ||
       req.body.choice >= CHOICE_KEYS.length) {
       res.json(404, {});
@@ -132,6 +129,25 @@ module.exports = {
     })
     .then(function(poll) {
       res.status(200).send(poll);
+    });
+  },
+
+  // [input] expects req.params to have pollId
+  // [output] returns status code 201 with 'success'
+  // [side effects] deletes poll from Poll table and
+  //    deletes all entries with that pollId in UserPoll table
+  delete: function(req, res) {
+    var pollId = req.params.pollId;
+    db.models.Poll.destroy({ where:{id: pollId} })
+
+    // find all entries in the UserPoll table
+    .then(function() {
+      return db.models.UserPoll.destroy({
+        where: {PollId: pollId}
+        });
+    })
+    .then(function() {
+      res.status(201).send("success");
     });
   }
 };
