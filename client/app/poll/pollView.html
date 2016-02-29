@@ -11,7 +11,7 @@
   
   <div ng-app="pollster.poll" ng-controller="PollController">
     <div ng-model="poll">
-      <div><span class="pollHeading pollTitle">{{poll.name}} </span>Created By: {{poll.creator}}</div>
+      <div><span id="pollTitle" class="pollHeading">{{poll.name}} </span>Created By: {{poll.creator}}</div>
       <table>
         <tr><th class="choiceName">Answer Choice</th><th class="choiceName">Votes</th><th class='voteButton' ng-hide="isusercreator()">Vote</th></tr>
         <tr>
