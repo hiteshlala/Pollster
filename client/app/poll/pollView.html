@@ -14,10 +14,10 @@
         <p>
           <span class="choiceName"> {{poll.choice1}} </span>  <span class="voteCount"> Votes: {{poll.choice1Count}} </span> <button ng-hide="isusercreator()"ng-click="vote(1)">Vote</button>
         </p>
-        <p>
+        <p ng-if="poll.choice2 !== null">
           <span class="choiceName"> {{poll.choice2}} </span>  <span class="voteCount"> Votes: {{poll.choice2Count}} </span> <button ng-hide="isusercreator()"ng-click="vote(2)">Vote</button>
         </p>
-        <p>
+        <p ng-if="poll.choice3 !== null">
           <span class="choiceName"> {{poll.choice3}} </span>  <span class="voteCount"> Votes: {{poll.choice3Count}} </span> <button ng-hide="isusercreator()"ng-click="vote(3)">Vote</button>
         </p>
       </div>
