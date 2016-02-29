@@ -1,7 +1,7 @@
 var Sequelize = require('sequelize');
 
-
-if(process.env.DATABASE_UR) {
+console.log('from db index ', process.env);
+if(process.env.DATABASE_URL) {
   var db = new Sequelize('postgres://dvxetgekpdlqos:wwqFsT4QKy0YkrniumiXwyhvk4@ec2-107-20-148-211.compute-1.amazonaws.com:5432/dd6d1aqr5qsdh1', {
     dialect: 'postgres',
     protocol: 'postgres',
