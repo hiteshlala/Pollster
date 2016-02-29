@@ -124,9 +124,12 @@ b {
     color: #2E64FE;
 }
 
-.pollTitle {
+#pollTitle {
+    font-size: 40px;
     padding: 5px;
     margin: 5px;
+    line-height: 70px;
+    font-weight: bold;
 }
 
 /* lists */
