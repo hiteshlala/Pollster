@@ -6,8 +6,12 @@
 
   <link rel="stylesheet" type="text/css" href="styles/style.css" />
 
-  <script src="lib/angular/angular.js"></script>
-  <script src="lib/angular-route/angular-route.js"></script>
+  <!-- <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular-route/angular-route.js"></script> -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular-route.min.js"></script>
+
+
 
   <script src="app/home/homeController.js"></script>
   <script src="app/auth/authController.js"></script>
@@ -20,9 +24,11 @@
   <script src="app/app.js"></script>
 </head>
 <body>
-  <h1>Pollster</h1>
-  <p>An app to solicit friends opinions on a decision</p>
-  <hr>
-  <div ng-view></div>
+  <header>
+    <h1>Pollster</h1>
+    <p>An app to solicit friends opinions on a decision</p>
+  </header>
+  
+  <div class='app' ng-view></div>
 </body>
 </html>

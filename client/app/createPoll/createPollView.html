@@ -1,16 +1,23 @@
-<div ng-controller='CreatePollController'>
+<div ng-controller='CreatePollController' class='viewContainer'>
   <h2>Create A New Poll</h2>
-  <a href="/#/"><button>See all Polls</button></a>
-  <a href="/#/friends"><button>Add Friends</button></a>
-  <button ng-click='signout()'>Sign out</button>
+
+  <div>
+    <a href="#/"><button>See all Polls</button></a>
+    <a href="#/friends"><button>Add Friends</button></a>
+    <a href="#/"><button>Return To Home</button></a>
+    <button ng-click='signout()' class='signOut'>Sign out</button>
+  </div>
+
   <form ng-submit='createPoll()'>
-    <p>Enter Your Question: <input ng-model='poll.name' /></p>
-    <p>Enter Answer Option 1: <input ng-model='poll.answer[0]' /></p>
-    <p>Enter Answer Option 2: <input ng-model='poll.answer[1]' /></p>
-    <p>Enter Answer Option 3: <input ng-model='poll.answer[2]' /></p>
-    <p>Enter Answer Option 4: <input ng-model='poll.answer[3]' /></p>
+    <p class='pollTitle'><b>Enter Your Question:<b> <input ng-model='poll.name' /></p>
+    <ul>
+      <li>Enter Answer Option 1: <input ng-model='poll.answer[0]' /></li>
+      <li>Enter Answer Option 2: <input ng-model='poll.answer[1]' /></li>
+      <li>Enter Answer Option 3: <input ng-model='poll.answer[2]' /></li>
+      <li>Enter Answer Option 4: <input ng-model='poll.answer[3]' /></li>
+    </ul>
     <p ng-if='poll.name && poll.answer[0] && poll.answer[1]'><button>Create Poll</button></p>
   </form>
 
-  <p><a href="#/">Return To Home</a></p>
+  <!-- <p><a href="#/"><button>Return To Home</button></a></p> -->
 </div>
