@@ -1,14 +1,16 @@
 var Sequelize = require('sequelize');
 
-// var db = new Sequelize('latte', 'root', '123');
-
-
-var db = new Sequelize('postgres://dvxetgekpdlqos:wwqFsT4QKy0YkrniumiXwyhvk4@ec2-107-20-148-211.compute-1.amazonaws.com:5432/dd6d1aqr5qsdh1', {
-  dialect: 'postgres',
-  protocol: 'postgres',
-  port: 5432,
-  host: 'ec2-107-20-148-211.compute-1.amazonaws.com'
-});
+// console.log('from db index ', process.env);
+if(process.env.DATABASE_URL) {
+  var db = new Sequelize('postgres://dvxetgekpdlqos:wwqFsT4QKy0YkrniumiXwyhvk4@ec2-107-20-148-211.compute-1.amazonaws.com:5432/dd6d1aqr5qsdh1', {
+    dialect: 'postgres',
+    protocol: 'postgres',
+    port: 5432,
+    host: 'ec2-107-20-148-211.compute-1.amazonaws.com'
+  });
+} else {
+  var db = new Sequelize('latte', 'root', '');
+}
 
 // Declares the schema for a user
 
