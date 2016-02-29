@@ -3,6 +3,8 @@ angular.module('pollster.friend', [])
 
 .controller('FriendsController', function ($scope, $window, Friend, Auth) {
 
+  $scope.currentUser = $window.localStorage.getItem('com.name');
+  
   $scope.signout = function () {
     Auth.signout();
   };
