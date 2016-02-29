@@ -1,6 +1,7 @@
 angular.module('pollster.createPoll', [])
 
 .controller('CreatePollController', function($scope, Poll, $location, $window, Auth) {
+  $scope.currentUser = $window.localStorage.getItem('com.name');
 
   $scope.signout = function () {
     Auth.signout();

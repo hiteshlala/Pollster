@@ -183,3 +183,8 @@ tr, th {
 .input {
     max-width: 100%;
 }
+
+.pollTitle {
+    font-size: 20px;
+    font-weight: 600;
+}
