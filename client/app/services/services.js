@@ -103,11 +103,23 @@ angular.module('pollster.services', [])
     });
   };
 
+
+  // [input] recieves pollId
+  // [output] 
+  // [side effects] deletes a poll in the database from all tables
+  var deletePoll = function(pollId) {
+    return $http({
+      method: 'DELETE',
+      url: '/polls/' + pollId
+    });
+  };
+
   return {
     getPollsFromDb: getPollsFromDb,
     voteOnPoll: voteOnPoll,
     getPollById: getPollById,
     createPoll: createPoll,
+    deletePoll: deletePoll
   };
 })
 

@@ -4,6 +4,7 @@
     <a href="#/"><button>See all Polls</button></a>
     <a href="#/create"><button>Create Poll</button></a>
     <a href="#/friends"><button>Add Friends</button></a>
+    <button ng-click='deletePoll(poll.id)' ng-if='isusercreator()'>Delete Poll</button>
     <button ng-click='signout()' class='signOut'>Sign out</button>
   </p>
   

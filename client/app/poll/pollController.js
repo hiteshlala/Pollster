@@ -1,7 +1,7 @@
 // POLL controller
 angular.module('pollster.poll', [])
 
-.controller('PollController', function ($window, $scope, Poll, Auth) {
+.controller('PollController', function ($window, $scope, $location, Poll, Auth) {
 
   $scope.signout = function () {
     Auth.signout();
@@ -43,6 +43,21 @@ angular.module('pollster.poll', [])
     return Number($window.localStorage.getItem('com.id')) === Number($scope.poll.creatorId);
   };
 
+  
+  // [input] the pollId to be deleted
+  // [output] none
+  // [side effects] delets poll from all database tables and redirects to homeView
+  $scope.deletePoll = function(pollId) {
+    Poll.deletePoll(pollId)
+    .then(function() {
+      $location.path('/');
+    });
+  };
+
+  $scope.getUser = function() {
+    return $window.localStorage.getItem('com.name');
+  };
+  
   init();
 
 });
