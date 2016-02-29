@@ -1,15 +1,17 @@
 <div id='poll'>
   <h2>Poll View</h2>
+  <p>Signed in as {{getUser()}}</p>
   <a href="/#/"><button>See all Polls</button></a>
   <a href="/#/create"><button>Create Poll</button></a>
   <a href="/#/friends"><button>Add Friends</button></a>
-  <button ng-click='signout()'>Sign out</button>
+  <button ng-click='deletePoll(poll.id)' ng-if='isusercreator()'>Delete Poll</button>
+  <button ng-click='signout()'>Sign Out</button>
 
   <div ng-app="pollster.poll" ng-controller="PollController">
     <div ng-model="poll">
       <div class="pollHeading">{{poll.name}}  Created By: {{poll.creator}}</div>
         <p>
-          <span class="choiceName"> {{poll.choice0}} </span>  <span class="voteCount"> Votes: {{poll.choice0Count}} </span> <button ng-hide="isusercreator()"ng-click="vote(0)">Vote</button>
+          <span class="choiceName"> {{poll.choice0}} </span>  <span class="voteCount"> Votes: {{poll.choice0Count}} </span> <button ng-hide="isusercreator()" ng-click="vote(0)">Vote</button>
         </p>
         <p>
           <span class="choiceName"> {{poll.choice1}} </span>  <span class="voteCount"> Votes: {{poll.choice1Count}} </span> <button ng-hide="isusercreator()"ng-click="vote(1)">Vote</button>
