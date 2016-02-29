@@ -13,7 +13,7 @@ app.set('view engine', 'html');
 
 app.use(session({secret: 'latte'}));
 app.use(parser.json());
-// app.use(express.static(__dirname + '/../client'));
+app.use(express.static(__dirname + '/../client'));
 app.use(express.static('/app/client' ) );
 app.use(express.static('/app/lib'));
 app.use('/', router);
