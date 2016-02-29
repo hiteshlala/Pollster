@@ -1,24 +1,185 @@
-/*ul {
-    list-style-type: none;
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    background-color: #333;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
-li {
+/*
+    Pollster Specific Styles
+ */
+body {
+    font: 300 16px/22px "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #E3F6CE;
+    color: #01A9DB;
+}
+
+header {
+    background: #F6E3CE;
+    text-align: center;
+    color: #01A9DB;
+    height: 150px;
+    overflow: scroll;
+
+}
+
+header h1 {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 70px;
+    letter-spacing: 1.3em;
+    text-transform: uppercase;
+}
+
+header p {
+    font-size: 18px;
+    line-height: 25px;
+}
+
+/* friendsView */
+.friends {
+    float: left;
+    width: 45%;
+    /*padding-left: 15px;*/
+}
+.users {
+    width: 45%;
     float: right;
 }
 
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}*/
+/* Highlights the element used for button like element */
+button {
+    font-weight: 400;
+    background: #CED8F6;
+    color: #01A9DB;
+    /*margin: 3 10 3 10;*/
+    padding: 3 10 3 10;    /*3 9 3 9;*/
+    line-height: 21px;
+    font-size: 19px;
+}
+button:hover { 
+    background-color: #F6CED8;
+}
 
-/* Change the link color to #111 (black) on hover 
-li a:hover {
-    background-color: #111;
-}*/
+h2 {
+    font-size: 36px;
+    padding: 25 30 15 30;
+    line-height: 46px;
+}
+
+h3 {
+    font-size: 28px;
+    padding: 25 30 15 30;
+    line-height: 36px;
+}
+
+b {
+    font-weight: bold;
+}
+
+/* add friends view */
+.userList:hover {
+    color: #2E64FE;
+}
+
+.pollTitle {
+    padding: 5px;
+    margin: 5px;
+}
+
+/* lists */
+ul {
+    padding: 5px;
+    margin: 8px;
+}
+
+li {
+    list-style: disc;
+    padding-left: 5px;
+    margin-left: 20px;
+}
+
+/* input boxes */
+input {
+    height: 22px;
+    width: 60%;
+    font-size: 18px;
+    vertical-align: middle;
+    color: #01A9DB;
+    background-color: #F7F8E0;
+    border-radius: 5px;
+}
+
+/* vote view */
+tr, th {
+    line-height: 50px;
+    text-align: center;
+}
+
+.choiceName {
+    max-width: 60%;
+}
+.voteCount {
+    width: 10%;
+}
+.voteButton {
+    width: 30%;
+}
+
+.signOut:hover {
+    background-color: #FA5882;
+}
+
+.viewContainer {
+    padding: 5px;
+}
+
+/* signin signup views */
+.criteria {
+    max-width: 30%;
+}
+.input {
+    max-width: 100%;
+}
