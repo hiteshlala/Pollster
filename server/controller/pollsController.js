@@ -1,11 +1,11 @@
-var db = require('../db');
+var db = require('../db').sequelize;
 
 var CHOICE_KEYS = [
 'choice0Count',
 'choice1Count',
 'choice2Count',
 'choice3Count'
-]
+];
 
 module.exports = {
   // [input] expects req.body to be an object with properties:

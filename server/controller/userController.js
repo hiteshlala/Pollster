@@ -1,4 +1,4 @@
-var db = require('../db');
+var db = require('../db').sequelize;
 
 module.exports = { 
   get: function(req, res) {
