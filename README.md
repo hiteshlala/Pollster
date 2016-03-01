@@ -15,6 +15,7 @@
 1. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)
     1. [Project Details](#project-details)
+      1. [Authentication](#authentication)
       1. [Server Design](#server-design)
       1. [Database Design](#database-design)
       1. [Client Design](#client-design)
@@ -58,6 +59,13 @@ npm install
 bower install
 ```
 ### Project Details
+
+#### Authentication
+
+Authentication was implemented using JWT and bcrypt-nodejs. We use a username-password method for authentication,
+which allows users to pick a username and password during sign up. The passwords are then hashed via bcrypt and
+stored on our servers. To remember that a user is logged in, the server sends JWT tokens to the client, which
+stores them in their browsers local storage. We also store the usernames and id of users in local storage.
 
 #### Server Design
 
