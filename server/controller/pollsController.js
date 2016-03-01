@@ -52,12 +52,14 @@ module.exports = {
     })
     // returns an array of object used to create UserPoll rows
     .then(function (data) {
-      data.push(req.body.creatorId);
+      data.push(Number(req.body.creatorId));
       return data.map(function (id) {
-        return {
+        var temp =  {
           UserId: id,
           PollId: pollId
         };
+        // console.log('from post pollsController',temp);
+        return temp;
       });
     })
     .then(function (data) {
